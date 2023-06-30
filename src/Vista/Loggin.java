@@ -36,6 +36,7 @@ public class Loggin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPasswordPin = new javax.swing.JPasswordField();
         jTextUsuario = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,7 +50,7 @@ public class Loggin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,6 +63,14 @@ public class Loggin extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
         jPanel2.add(jPasswordPin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 150, -1));
         jPanel2.add(jTextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 150, -1));
+
+        jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1687968369999.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 500, 500));
@@ -94,16 +103,28 @@ public class Loggin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Menuprincipal panel2 = new Menuprincipal()
-            ;
-            panel2.setVisible(true);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al mostrar el panel: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        String usuario = jTextUsuario.getText();
+        String pin = jPasswordPin.getText();
+        
+        if(usuario.isEmpty()  || pin.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Por favor completa todos los campos");
+        }else{
+            if (usuario.equals("22802252") && pin.equals("2023")){
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+                Menuprincipal panel2 = new Menuprincipal();
+                panel2.setVisible(true);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"Usuario o Pin Incorrectos");
+            }
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.exit(0);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +163,7 @@ public class Loggin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
