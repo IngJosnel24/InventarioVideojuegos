@@ -109,7 +109,7 @@ public class Loggin extends javax.swing.JFrame {
         if(usuario.isEmpty()  || pin.isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor completa todos los campos");
         }else{
-            if (usuario.equals("22802252") && pin.equals("2023")){
+            if (usuario.equals("12345") && pin.equals("4321")){
                 JOptionPane.showMessageDialog(null, "Bienvenido");
                 Menuprincipal panel2 = new Menuprincipal();
                 panel2.setVisible(true);

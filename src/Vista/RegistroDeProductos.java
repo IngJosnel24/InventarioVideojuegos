@@ -23,6 +23,7 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         mostrar();
+        
     }
 
     public void guardarProducto() {
@@ -77,6 +78,25 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         cc.ActualizarDatosProducto(cl);
 
     }
+    
+    
+    
+    public void Combo() {
+    String categoriaSeleccionada = comboCategoria.getSelectedItem().toString();
+    
+    if (categoriaSeleccionada.equals("Comestible")) {
+        RegistroDeVentas vh = new RegistroDeVentas();
+        vh.setVisible(true);
+    }else if(categoriaSeleccionada.equals("Electronico")){
+        RegistroDeVentas vh = new RegistroDeVentas();
+        vh.setVisible(true); 
+    }else if(categoriaSeleccionada.equals("Videojuego")){
+        RegistroDeVentas vh = new RegistroDeVentas();
+        vh.setVisible(true); 
+    }
+}
+
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -119,6 +139,7 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jTextFieldIDProducto = new javax.swing.JTextField();
         comboCategoria = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 0));
 
@@ -220,60 +241,60 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jButton5))
-                .addGap(51, 51, 51))
+                .addGap(60, 60, 60))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 110));
 
-        jLabel2.setText("Registrar Producto:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 212, 107, -1));
+        jLabel2.setText("Registrar Nombre:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 107, -1));
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 209, 487, -1));
+        jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 487, -1));
 
         jTextFieldCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCantidadActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 289, 487, -1));
+        jPanel1.add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 487, -1));
 
-        jLabel5.setText("Cantidad");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 292, 107, -1));
+        jLabel5.setText("Cantidad:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 107, -1));
 
         jTextFieldPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 329, 487, -1));
+        jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 487, -1));
 
-        jLabel6.setText("Precio");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 332, 107, -1));
+        jLabel6.setText("Precio:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 107, -1));
 
         jLabel7.setText("Categoria");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 6, 107, -1));
 
-        jLabel8.setText("Descripcion");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 252, 107, -1));
+        jLabel8.setText("Descripcion:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 107, -1));
 
         jTextFielDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFielDescripcionActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextFielDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 249, 487, -1));
+        jPanel1.add(jTextFielDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 487, -1));
 
-        jLabel9.setText("Categoria");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 372, 107, -1));
+        jLabel9.setText("Categoria:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 107, -1));
 
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -292,15 +313,23 @@ public class RegistroDeProductos extends javax.swing.JFrame {
 
         jTableProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID Produto", "Producto", "Cantidad", "Precio", "Categoria"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jTableProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableProductoMouseClicked(evt);
@@ -308,7 +337,7 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableProducto);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 750, 220));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 740, 220));
         jPanel1.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 540, 30));
 
         jButtonBuscar.setText("Buscar");
@@ -361,13 +390,21 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         jTextFieldIDProducto.setText("jTextField1");
         jPanel1.add(jTextFieldIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, -1, -1));
 
-        comboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Electronico", "Videojuego" }));
         comboCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCategoriaActionPerformed(evt);
             }
         });
-        jPanel1.add(comboCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 310, -1));
+        jPanel1.add(comboCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 310, -1));
+
+        jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -526,10 +563,15 @@ public class RegistroDeProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void comboCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoriaActionPerformed
+        
         // TODO add your handling code here:
         
         
     }//GEN-LAST:event_comboCategoriaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Combo();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -576,6 +618,7 @@ public class RegistroDeProductos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton botonmostrar;
     private javax.swing.JComboBox<String> comboCategoria;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonActualizar;
