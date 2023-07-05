@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class Loggin extends javax.swing.JFrame {
@@ -28,6 +29,7 @@ public class Loggin extends javax.swing.JFrame {
         jTextUsuario = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        LBADVERTENCIA = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,9 +58,15 @@ public class Loggin extends javax.swing.JFrame {
                 jPasswordPinActionPerformed(evt);
             }
         });
+        jPasswordPin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordPinKeyPressed(evt);
+            }
+        });
         jPanel2.add(jPasswordPin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 170, 60));
 
         jTextUsuario.setBackground(new java.awt.Color(178, 178, 178));
+        jTextUsuario.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jTextUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)), "USUARIO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 14))); // NOI18N
         jTextUsuario.setDoubleBuffered(true);
@@ -66,6 +74,11 @@ public class Loggin extends javax.swing.JFrame {
         jTextUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextUsuarioActionPerformed(evt);
+            }
+        });
+        jTextUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextUsuarioKeyPressed(evt);
             }
         });
         jPanel2.add(jTextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 180, 60));
@@ -77,10 +90,13 @@ public class Loggin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 50, 30));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 50, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1687968369999.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 460, 280));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 460, 280));
+
+        LBADVERTENCIA.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jPanel2.add(LBADVERTENCIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 190, 30));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -126,7 +142,10 @@ public class Loggin extends javax.swing.JFrame {
                 panel2.setVisible(true);
                 this.dispose();
             }else{
-                JOptionPane.showMessageDialog(null,"Usuario o Pin Incorrectos");
+                LBADVERTENCIA.setForeground(new Color (255,0,0));
+                LBADVERTENCIA.setText("ACCESO DENEGADO!!");
+                jTextUsuario.setText("");
+                jPasswordPin.setText("");
             }
         }
         // TODO add your handling code here:
@@ -144,6 +163,16 @@ public class Loggin extends javax.swing.JFrame {
     private void jPasswordPinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordPinActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordPinActionPerformed
+
+    private void jTextUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextUsuarioKeyPressed
+        // TODO add your handling code here:
+        LBADVERTENCIA.setText("");
+    }//GEN-LAST:event_jTextUsuarioKeyPressed
+
+    private void jPasswordPinKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordPinKeyPressed
+        // TODO add your handling code here:
+        LBADVERTENCIA.setText("");
+    }//GEN-LAST:event_jPasswordPinKeyPressed
 
     /**
      * @param args the command line arguments
@@ -181,6 +210,7 @@ public class Loggin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LBADVERTENCIA;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
