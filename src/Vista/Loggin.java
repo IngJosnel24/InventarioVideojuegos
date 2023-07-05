@@ -24,8 +24,6 @@ public class Loggin extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPasswordPin = new javax.swing.JPasswordField();
         jTextUsuario = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -45,23 +43,32 @@ public class Loggin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 50, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 50, 30));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("USUARIO");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        jPasswordPin.setBackground(new java.awt.Color(178, 178, 178));
+        jPasswordPin.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jPasswordPin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordPin.setActionCommand("<Not Set>");
+        jPasswordPin.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)), "PIN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 14))); // NOI18N
+        jPasswordPin.setOpaque(true);
+        jPasswordPin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordPinActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jPasswordPin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 170, 60));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("CONTRASEÑA");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
-
-        jPasswordPin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jPasswordPin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 150, -1));
-
-        jTextUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jTextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 150, -1));
+        jTextUsuario.setBackground(new java.awt.Color(178, 178, 178));
+        jTextUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)), "USUARIO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 14))); // NOI18N
+        jTextUsuario.setDoubleBuffered(true);
+        jTextUsuario.setOpaque(true);
+        jTextUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 180, 60));
 
         jButton2.setText("Salir");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -70,7 +77,7 @@ public class Loggin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 50, 30));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 50, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1687968369999.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 460, 280));
@@ -130,6 +137,14 @@ public class Loggin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextUsuarioActionPerformed
+
+    private void jPasswordPinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordPinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordPinActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -169,8 +184,6 @@ public class Loggin extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordPin;
