@@ -307,8 +307,9 @@ public class RegistroDeProductos extends javax.swing.JFrame {
                 jTextFieldBuscarKeyReleased(evt);
             }
         });
-        jPanel1.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 540, 40));
+        jPanel1.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 550, 40));
 
+        jButtonBuscar.setBackground(new java.awt.Color(204, 255, 255));
         jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Buscar2.png"))); // NOI18N
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
