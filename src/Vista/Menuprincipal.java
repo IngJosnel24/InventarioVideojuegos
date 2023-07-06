@@ -190,7 +190,7 @@ public class Menuprincipal extends javax.swing.JFrame {
             Tiempo panel2 = new Tiempo()
             ;
             panel2.setVisible(true);
-
+            setVisible(false);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al mostrar el panel: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -207,7 +207,7 @@ public class Menuprincipal extends javax.swing.JFrame {
             RegistroDeProductos panel2 = new RegistroDeProductos()
             ;
             panel2.setVisible(true);
-
+             setVisible(false);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al mostrar el panel: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -219,7 +219,7 @@ public class Menuprincipal extends javax.swing.JFrame {
             RegistroDeVentas panel2 = new RegistroDeVentas()
             ;
             panel2.setVisible(true);
-
+             setVisible(false);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al mostrar el panel: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
