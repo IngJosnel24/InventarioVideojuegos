@@ -29,7 +29,8 @@ public class Loggin extends javax.swing.JFrame {
         jTextUsuario = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        LBADVERTENCIA = new javax.swing.JLabel();
+        LBADVERTENCIA2 = new javax.swing.JLabel();
+        LBADVERTENCIA1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +47,7 @@ public class Loggin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 50, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 50, 30));
 
         jPasswordPin.setBackground(new java.awt.Color(178, 178, 178));
         jPasswordPin.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -91,13 +92,16 @@ public class Loggin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 50, 30));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 50, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1687968369999.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 460, 280));
 
-        LBADVERTENCIA.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jPanel2.add(LBADVERTENCIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 290, 30));
+        LBADVERTENCIA2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jPanel2.add(LBADVERTENCIA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 270, 30));
+
+        LBADVERTENCIA1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jPanel2.add(LBADVERTENCIA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 190, 30));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -135,8 +139,8 @@ public class Loggin extends javax.swing.JFrame {
         String pin = jPasswordPin.getText();
         
         if(usuario.isEmpty()  || pin.isEmpty()){
-                LBADVERTENCIA.setForeground(new Color (255,0,0));
-                LBADVERTENCIA.setText("COMPLETA TODOS LOS CAMPOS!!");
+                LBADVERTENCIA2.setForeground(new Color (255,0,0));
+                LBADVERTENCIA2.setText("COMPLETA TODOS LOS CAMPOS!!");
                 jTextUsuario.setText("");
                 jPasswordPin.setText("");
         }else{
@@ -146,8 +150,8 @@ public class Loggin extends javax.swing.JFrame {
                 panel2.setVisible(true);
                 this.dispose();
             }else{
-                LBADVERTENCIA.setForeground(new Color (255,0,0));
-                LBADVERTENCIA.setText("ACCESO DENEGADO!!");
+                LBADVERTENCIA1.setForeground(new Color (255,0,0));
+                LBADVERTENCIA1.setText("ACCESO DENEGADO!!");
                 jTextUsuario.setText("");
                 jPasswordPin.setText("");
             }
@@ -170,12 +174,12 @@ public class Loggin extends javax.swing.JFrame {
 
     private void jTextUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextUsuarioKeyPressed
         // TODO add your handling code here:
-        LBADVERTENCIA.setText("");
+        LBADVERTENCIA2.setText("");
     }//GEN-LAST:event_jTextUsuarioKeyPressed
 
     private void jPasswordPinKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordPinKeyPressed
         // TODO add your handling code here:
-        LBADVERTENCIA.setText("");
+        LBADVERTENCIA2.setText("");
     }//GEN-LAST:event_jPasswordPinKeyPressed
 
     /**
@@ -214,7 +218,8 @@ public class Loggin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LBADVERTENCIA;
+    private javax.swing.JLabel LBADVERTENCIA1;
+    private javax.swing.JLabel LBADVERTENCIA2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
