@@ -36,6 +36,7 @@ public class Loggin extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel2.setBackground(new java.awt.Color(178, 178, 178));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Entrar");
@@ -96,7 +97,7 @@ public class Loggin extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 460, 280));
 
         LBADVERTENCIA.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jPanel2.add(LBADVERTENCIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 190, 30));
+        jPanel2.add(LBADVERTENCIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 290, 30));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -134,7 +135,10 @@ public class Loggin extends javax.swing.JFrame {
         String pin = jPasswordPin.getText();
         
         if(usuario.isEmpty()  || pin.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Por favor completa todos los campos");
+                LBADVERTENCIA.setForeground(new Color (255,0,0));
+                LBADVERTENCIA.setText("COMPLETA TODOS LOS CAMPOS!!");
+                jTextUsuario.setText("");
+                jPasswordPin.setText("");
         }else{
             if (usuario.equals("12345") && pin.equals("4321")){
                 JOptionPane.showMessageDialog(null, "Bienvenido");
