@@ -212,8 +212,9 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 670));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel2.setText("Registrar Nombre:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 107, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, -1));
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,8 +230,9 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 487, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel5.setText("Cantidad:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 107, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 70, -1));
 
         jTextFieldPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,11 +241,13 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 487, -1));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel6.setText("Precio:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 107, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 50, -1));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel8.setText("Descripcion:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 107, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 80, -1));
 
         jTextFielDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,8 +256,9 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFielDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 487, -1));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel9.setText("Categoria:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 107, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 70, -1));
 
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -269,7 +274,7 @@ public class RegistroDeProductos extends javax.swing.JFrame {
                 botonmostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, -1, 20));
+        jPanel1.add(botonmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, 20));
 
         jTableProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -298,15 +303,15 @@ public class RegistroDeProductos extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTableProducto);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 740, 220));
-        jPanel1.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 540, 30));
+        jPanel1.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 540, 40));
 
-        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Buscar2.png"))); // NOI18N
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, -1, 30));
+        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, 40));
 
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
