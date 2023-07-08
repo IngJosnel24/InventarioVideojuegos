@@ -97,11 +97,11 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jInternalFrame3" max="-2" attributes="0"/>
-                      <Component id="jInternalFrame4" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jInternalFrame4" pref="231" max="32767" attributes="0"/>
+                      <Component id="jInternalFrame3" pref="231" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="71" max="32767" attributes="0"/>
+                  <EmptySpace pref="63" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -214,6 +214,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtHora">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHoraActionPerformed"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHoraKeyReleased"/>
               </Events>
             </Component>
@@ -458,7 +459,7 @@
                           <Component id="txtSegundo4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtHora4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="11" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
