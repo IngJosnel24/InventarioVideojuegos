@@ -3,7 +3,7 @@ package Controlador.Conexion;
 
 /**
  *
- * @author mr540
+ * @author Oneyker21
  */
 public class CRUDVenta {
     

@@ -1,4 +1,3 @@
-
 package Vista;
 
 import Controlador.Conexion.CRUDProducto;
@@ -8,10 +7,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 
-/**
- *
- * @author Oneyker21
- */
 public class RegistroDeProductos extends javax.swing.JFrame {
 
     int datoSeleccionado = -1;
