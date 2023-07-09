@@ -1032,7 +1032,7 @@ public class Tiempo extends javax.swing.JFrame {
 
     private void btnReiniciar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciar3ActionPerformed
         if (evt.getSource() == btnReiniciar3) {
-            reiniciarCronometro();
+            reiniciarCronometro3();
             btnIniciar3.setEnabled(true);
             btnPausar3.setEnabled(false);
             btnReiniciar3.setEnabled(false);
@@ -1100,7 +1100,7 @@ public class Tiempo extends javax.swing.JFrame {
 
     private void btnPausar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausar3ActionPerformed
         if (evt.getSource() == btnPausar3) {
-            detenerCronometro2();
+            detenerCronometro3();
             btnIniciar3.setEnabled(true);
             btnPausar3.setEnabled(false);
             btnReiniciar3.setEnabled(true);
@@ -1133,7 +1133,7 @@ public class Tiempo extends javax.swing.JFrame {
 
     private void btnPausar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausar4ActionPerformed
         if (evt.getSource() == btnPausar4) {
-            detenerCronometro2();
+            detenerCronometro4();
             btnIniciar4.setEnabled(true);
             btnPausar4.setEnabled(false);
             btnReiniciar4.setEnabled(true);

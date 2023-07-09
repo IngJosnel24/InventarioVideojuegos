@@ -14,9 +14,11 @@ public class Conexion {
 <<<<<<< HEAD
             conexionUrl = "jdbc:sqlserver://localhost:49720;"
             + "database=DB_ELTORO;"
+//49720
 =======
             conexionUrl = "jdbc:sqlserver://localhost:51386;"
             + "database=DB_ELTORO"
+//51386
 >>>>>>> dec30762279d61353fde2e3dd61411c4efab8cdd
             + "integratedSecurity = true;" + " encrypt= true;trustServerCertificate= true;";
 
