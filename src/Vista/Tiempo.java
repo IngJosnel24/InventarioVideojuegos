@@ -1069,21 +1069,21 @@ public class Tiempo extends javax.swing.JFrame {
     private void txtHora4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHora4KeyReleased
         String tHora = txtHora4.getText();
 
-        hora = Integer.parseInt(tHora);
+        hora4 = Integer.parseInt(tHora);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHora4KeyReleased
 
     private void txtMinuto4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMinuto4KeyReleased
         String tMinuto = txtMinuto4.getText();
 
-        minuto = Integer.parseInt(tMinuto);
+        minuto4 = Integer.parseInt(tMinuto);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMinuto4KeyReleased
 
     private void txtSegundo4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSegundo4KeyReleased
         String tSegundo = txtSegundo4.getText();
 
-        segundo = Integer.parseInt(tSegundo);
+        segundo4 = Integer.parseInt(tSegundo);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSegundo4KeyReleased
 

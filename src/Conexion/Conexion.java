@@ -1,20 +1,20 @@
 package Conexion;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
  * @author Oneyker21
  */
 public class Conexion {
+
     
     private final String 
-            conexionUrl = "jdbc:sqlserver://localhost:1433;"
-            + "database=DB_ELTORO"
+            conexionUrl = "jdbc:sqlserver://localhost:49720;"
+            + "database=DB_ELTORO;"
             + "integratedSecurity = true;" + " encrypt= true;trustServerCertificate= true;";
-//Puertos 1433 y 49720
+
     Connection cn;
 
     public Connection conectar() { //constructor de la clase
@@ -30,5 +30,5 @@ public class Conexion {
         }
         return null;
     }
-    
+
 }

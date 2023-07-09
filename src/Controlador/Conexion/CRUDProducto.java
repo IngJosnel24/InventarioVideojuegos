@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CRUDProducto {
 
-    private final Conexion con = new Conexion();
+     private final Conexion con = new Conexion();
     private final Connection cn = (Connection) con.conectar();
 
     public void Guardar(POJOProducto Cl) {
