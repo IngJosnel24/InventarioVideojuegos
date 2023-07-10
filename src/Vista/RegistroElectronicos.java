@@ -1,7 +1,7 @@
 package Vista;
 
-import Controlador.Conexion.CRUDProducto;
-import POJOS.POJOProducto;
+import Controlador.Conexion.CRUDElectronico;
+import POJOS.POJOElectronico;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,13 +18,13 @@ public class RegistroElectronicos extends javax.swing.JFrame {
         
     }
 
-    public void guardarProducto() {
-        CRUDProducto cc = new CRUDProducto();
-        POJOProducto ct = new POJOProducto(jTextFieldNombre.getText(),
+    public void Guardar() {
+        CRUDElectronico cc = new CRUDElectronico();
+        POJOElectronico ct = new POJOElectronico(String.format(idproducto.getText()),
+                jTextFieldNombre.getText(),
                 jTextFielDescripcion.getText(),
                 jTextFieldCantidad.getText(),
-                jTextFieldPrecio.getText(),
-                comboCategoria.getSelectedItem().toString());
+                jTextFieldPrecio.getText());
 
         cc.Guardar(ct);
 
@@ -35,15 +35,14 @@ public class RegistroElectronicos extends javax.swing.JFrame {
         jTextFielDescripcion.setText("");
         jTextFieldCantidad.setText("");
         jTextFieldPrecio.setText("");
-        comboCategoria.setSelectedItem("");
 
     }
 
     public void mostrar() {
         try {
             DefaultTableModel modelo;
-            CRUDProducto cli = new CRUDProducto();
-            modelo = cli.mostrarDatosProducto();
+            CRUDElectronico cli = new CRUDElectronico();
+            modelo = cli.mostrarElectronicos();
             jTableProducto.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -52,9 +51,9 @@ public class RegistroElectronicos extends javax.swing.JFrame {
 
     public void editarProducto() {
 
-        CRUDProducto cc = new CRUDProducto();
+        CRUDElectronico cc = new CRUDElectronico();
 
-        POJOProducto cl = new POJOProducto(
+        POJOElectronico cl = new POJOElectronico(
                 Integer.parseInt(jTextFieldIDProducto.getText()),
                 jTextFieldNombre.getText(),
                 jTextFielDescripcion.getText(),
@@ -67,26 +66,26 @@ public class RegistroElectronicos extends javax.swing.JFrame {
                 
         
 
-        cc.ActualizarDatosProducto(cl);
+        cc.actualizarDatosElectronico(cl);
 
     }
     
     
     
-    public void Combo() {
-    String categoriaSeleccionada = comboCategoria.getSelectedItem().toString();
-    
-    if (categoriaSeleccionada.equals("Comestible")) {
-        RegistroDeVentas vh = new RegistroDeVentas();
-        vh.setVisible(true);
-    }else if(categoriaSeleccionada.equals("Electronico")){
-        RegistroDeVentas vh = new RegistroDeVentas();
-        vh.setVisible(true); 
-    }else if(categoriaSeleccionada.equals("Videojuego")){
-        RegistroDeVentas vh = new RegistroDeVentas();
-        vh.setVisible(true); 
-    }
-}
+//    public void Combo() {
+//    String categoriaSeleccionada = comboCategoria.getSelectedItem().toString();
+//    
+//    if (categoriaSeleccionada.equals("Comestible")) {
+//        RegistroDeVentas vh = new RegistroDeVentas();
+//        vh.setVisible(true);
+//    }else if(categoriaSeleccionada.equals("Electronico")){
+//        RegistroDeVentas vh = new RegistroDeVentas();
+//        vh.setVisible(true); 
+//    }else if(categoriaSeleccionada.equals("Videojuego")){
+//        RegistroDeVentas vh = new RegistroDeVentas();
+//        vh.setVisible(true); 
+//    }
+//}
 
 
 
@@ -114,7 +113,6 @@ public class RegistroElectronicos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jTextFielDescripcion = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
         botonmostrar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -126,9 +124,9 @@ public class RegistroElectronicos extends javax.swing.JFrame {
         jButtonActualizar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jTextFieldIDProducto = new javax.swing.JTextField();
-        comboCategoria = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
+        idproducto = new javax.swing.JTextField();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 0));
 
@@ -249,10 +247,6 @@ public class RegistroElectronicos extends javax.swing.JFrame {
         });
         jPanel1.add(jTextFielDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 487, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel9.setText("Categoria");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 70, 20));
-
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,14 +349,6 @@ public class RegistroElectronicos extends javax.swing.JFrame {
         jTextFieldIDProducto.setText("jTextField1");
         jPanel1.add(jTextFieldIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, -1, -1));
 
-        comboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Electronico", "Videojuego" }));
-        comboCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboCategoriaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(comboCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 310, -1));
-
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,6 +368,9 @@ public class RegistroElectronicos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, 30, 30));
+
+        idproducto.setText("jTextField1");
+        jPanel1.add(idproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -424,16 +413,15 @@ public class RegistroElectronicos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFielDescripcionActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        CRUDProducto cl = new CRUDProducto();
+        CRUDElectronico cl = new CRUDElectronico();
         try {
             if ((jTextFieldNombre.getText().equals(""))
                     || (jTextFielDescripcion.getText().equals(""))
                     || (jTextFieldCantidad.getText().equals(""))
-                    || (jTextFieldPrecio.getText().equals(""))
-                    || (comboCategoria.getSelectedItem().equals(""))) {
+                    || (jTextFieldPrecio.getText().equals(""))) {
                 JOptionPane.showMessageDialog(null, "Tiene datos vacio");
             } else {
-                guardarProducto();
+                Guardar();
                 limpiar();
                 RegistroElectronicos.botonmostrar.doClick();
                 JOptionPane.showMessageDialog(null, "Datos guardados");
@@ -452,8 +440,8 @@ public class RegistroElectronicos extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         try {
             DefaultTableModel modelo;
-            CRUDProducto cli = new CRUDProducto();
-            modelo = cli.buscarDatosProducto(jTextFieldBuscar.getText());
+            CRUDElectronico cli = new CRUDElectronico();
+            modelo = cli.buscarDatosElectronico(jTextFieldBuscar.getText());
             if (jTextFieldBuscar.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Escriba el dato a buscar");
                 mostrar();
@@ -468,7 +456,7 @@ public class RegistroElectronicos extends javax.swing.JFrame {
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         if (datoSeleccionado >= 0) {
             int dato = Integer.valueOf(jTableProducto.getValueAt(datoSeleccionado, 0).toString());
-            CRUDProducto cli = new CRUDProducto();
+            CRUDElectronico cli = new CRUDElectronico();
             if (JOptionPane.showConfirmDialog(rootPane,
                     "Se eliminará el registro, ¿desea continuar?",
                     "Eliminar Registro",
@@ -476,7 +464,7 @@ public class RegistroElectronicos extends javax.swing.JFrame {
                     JOptionPane.YES_NO_OPTION)
                     == JOptionPane.YES_OPTION) {
 
-                cli.EliminarProducto(dato);
+                cli.eliminarElectronico(dato);
                 mostrar();
                 JOptionPane.showMessageDialog(null,
                         "Dato eliminado correctamente");
@@ -496,7 +484,6 @@ public class RegistroElectronicos extends javax.swing.JFrame {
             RegistroElectronicos.jTextFieldPrecio.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 4)));
             int Idcategoria = Integer.parseInt((String)this.jTableProducto.getValueAt(datoSeleccionado, 5));
             
-            comboCategoria.setSelectedItem(""+ Idcategoria);
 
             RegistroElectronicos.jButtonGuardar.setVisible(false);
 
@@ -511,8 +498,7 @@ public class RegistroElectronicos extends javax.swing.JFrame {
                     || jTextFieldNombre.getText().isEmpty()
                     || jTextFielDescripcion.getText().isEmpty()
                     || jTextFieldCantidad.getText().isEmpty()
-                    || jTextFieldPrecio.getText().isEmpty()
-                    || comboCategoria.getSelectedItem().toString().isEmpty()) {
+                    || jTextFieldPrecio.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Existen campos vacíos");
             } else {
                 editarProducto();
@@ -528,15 +514,8 @@ public class RegistroElectronicos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
-    private void comboCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoriaActionPerformed
-        
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_comboCategoriaActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Combo();
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botonmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmostrarActionPerformed
@@ -611,7 +590,7 @@ public class RegistroElectronicos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cerrar;
     public static javax.swing.JButton botonmostrar;
-    private javax.swing.JComboBox<String> comboCategoria;
+    private javax.swing.JTextField idproducto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonActualizar;
@@ -624,7 +603,6 @@ public class RegistroElectronicos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
