@@ -877,7 +877,7 @@ public class Tiempo extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jInternalFrame4, javax.swing.GroupLayout.Alignment.TRAILING, 260, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.Alignment.TRAILING, 260, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1032,7 +1032,7 @@ public class Tiempo extends javax.swing.JFrame {
 
     private void btnReiniciar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciar3ActionPerformed
         if (evt.getSource() == btnReiniciar3) {
-            reiniciarCronometro3();
+            reiniciarCronometro();
             btnIniciar3.setEnabled(true);
             btnPausar3.setEnabled(false);
             btnReiniciar3.setEnabled(false);
@@ -1100,7 +1100,7 @@ public class Tiempo extends javax.swing.JFrame {
 
     private void btnPausar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausar3ActionPerformed
         if (evt.getSource() == btnPausar3) {
-            detenerCronometro3();
+            detenerCronometro2();
             btnIniciar3.setEnabled(true);
             btnPausar3.setEnabled(false);
             btnReiniciar3.setEnabled(true);
@@ -1133,7 +1133,7 @@ public class Tiempo extends javax.swing.JFrame {
 
     private void btnPausar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausar4ActionPerformed
         if (evt.getSource() == btnPausar4) {
-            detenerCronometro4();
+            detenerCronometro2();
             btnIniciar4.setEnabled(true);
             btnPausar4.setEnabled(false);
             btnReiniciar4.setEnabled(true);

@@ -64,7 +64,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="69" max="32767" attributes="0"/>
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jInternalFrame4" alignment="1" min="260" pref="260" max="-2" attributes="0"/>
                       <Component id="jInternalFrame1" alignment="1" min="260" pref="260" max="-2" attributes="0"/>

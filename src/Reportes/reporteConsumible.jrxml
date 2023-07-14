@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79095894-3cbe-4a82-8405-69d2b6a25174">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT consumibles.id_Consumible,  producto.nombre, producto.precio_compra, producto.descripcion, Consumibles.fecha_vencimiento
+	FROM consumibles
+	INNER JOIN producto ON consumibles.id_producto = producto.id_producto]]>
+	</queryString>
+	<field name="id_Consumible" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="precio_compra" class="java.lang.Double"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="fecha_vencimiento" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="92" y="19" width="595" height="36" uuid="0caaf292-9c17-421e-aea5-46c35fbf32a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte consumibles]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="59" width="802" height="20" backcolor="#009999" uuid="3528c7c2-bbf7-43f6-ab6e-95eb3d8ce1b1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="20" backcolor="#009999" uuid="be403e45-40c5-4911-9e4c-d25bf911e723"/>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="793bcf3d-81ba-440a-a929-92c4eba090fa"/>
+				<text><![CDATA[id_Consumible]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="100" height="20" uuid="eed7a93c-2bad-4076-ab57-b5b88fc27b6a"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="2" width="100" height="20" uuid="c1ded1aa-9686-40a9-aecb-e736545e9942"/>
+				<text><![CDATA[precio_compra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="2" width="100" height="20" uuid="d88c413e-b908-4ce4-a082-ecfa08e5bb65"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="2" width="100" height="20" uuid="dba1c37c-3c5d-4349-9b8a-14e070fd77a6"/>
+				<text><![CDATA[fecha_vencimiento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="4820a058-c22b-47a4-a952-c7e8e5130328"/>
+				<textFieldExpression><![CDATA[$F{id_Consumible}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="9fc1d8d9-20dc-4544-9b21-9addf6eba2f3"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="79f3c6df-e9a6-4650-b295-7d04581f5e63"/>
+				<textFieldExpression><![CDATA[$F{precio_compra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="d27669c7-e0fd-41cc-b9a9-221b63154b18"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="22335532-0e10-4140-b1ad-c32b3c84966f"/>
+				<textFieldExpression><![CDATA[$F{fecha_vencimiento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>

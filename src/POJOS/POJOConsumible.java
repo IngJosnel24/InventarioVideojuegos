@@ -4,73 +4,57 @@ package POJOS;
  *
  * @author Oneyker21
  */
-
 public class POJOConsumible extends POJOProducto {
-    private int idConsumible;
-    private int idProducto;
-    private String nombre;
-    private double precioCompra;
-    private String descripcion;
-    private String fechaVencimiento;
 
-    public POJOConsumible() {
+    int id_Consumible;
+    int id_producto;
+    String fecha_vencimiento;
+
+    public POJOConsumible(int id_Consumible, String fecha_vencimiento, int id_producto, String nombre, float precio_compra, String descripcion, float Precio_Venta, String Categoria, int Cantidad) {
+        super(id_producto, nombre, precio_compra, descripcion, Precio_Venta, Categoria, Cantidad);
+        this.id_Consumible = id_Consumible;
+        this.id_producto = id_producto;
+        this.fecha_vencimiento = fecha_vencimiento;
     }
 
-    public POJOConsumible(int idConsumible, int idProducto, String nombre, double precioCompra, String descripcion,
-            String fechaVencimiento) {
-        this.idConsumible = idConsumible;
-        this.idProducto = idProducto;
-        this.nombre = nombre;
-        this.precioCompra = precioCompra;
-        this.descripcion = descripcion;
-        this.fechaVencimiento = fechaVencimiento;
+    public POJOConsumible(String fecha_vencimiento, String nombre, float precio_compra, String descripcion, float Precio_Venta, String Categoria, int Cantidad) {
+        super(nombre, precio_compra, descripcion, Precio_Venta, Categoria, Cantidad);
+        this.fecha_vencimiento = fecha_vencimiento;
     }
 
-    public int getIdConsumible() {
-        return idConsumible;
+    public POJOConsumible(int id_Consumible, String fecha_vencimiento, String nombre, float precio_compra, String descripcion, float Precio_Venta, String Categoria, int Cantidad) {
+        super(nombre, precio_compra, descripcion, Precio_Venta, Categoria, Cantidad);
+        this.id_Consumible = id_Consumible;
+        this.fecha_vencimiento = fecha_vencimiento;
     }
 
-    public void setIdConsumible(int idConsumible) {
-        this.idConsumible = idConsumible;
+    
+    
+    
+    
+    
+    public int getId_Consumible() {
+        return id_Consumible;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public void setId_Consumible(int id_Consumible) {
+        this.id_Consumible = id_Consumible;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public int getId_producto() {
+        return id_producto;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setId_producto(int id_producto) {
+        this.id_producto = id_producto;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getFecha_vencimiento() {
+        return fecha_vencimiento;
     }
 
-    public double getPrecioCompra() {
-        return precioCompra;
+    public void setFecha_vencimiento(String fecha_vencimiento) {
+        this.fecha_vencimiento = fecha_vencimiento;
     }
 
-    public void setPrecioCompra(double precioCompra) {
-        this.precioCompra = precioCompra;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getFechaVencimiento() {
-        return fechaVencimiento;
-    }
-
-    public void setFechaVencimiento(String fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
-    }
 }

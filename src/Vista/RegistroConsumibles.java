@@ -1,7 +1,14 @@
-
 package Vista;
 
+import Conexion.Conexion;
+import Controlador.Conexion.CRUDConsumible;
+import POJOS.POJOConsumible;
+import java.awt.HeadlessException;
+import java.io.File;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -9,8 +16,89 @@ import javax.swing.JOptionPane;
  */
 public class RegistroConsumibles extends javax.swing.JFrame {
 
+    int datoSeleccionado = -1;
+
     public RegistroConsumibles() {
         initComponents();
+//        jTextFieldCombomostra.setVisible(false);
+//        mostrar();
+        JugarConCamposDeTexto();
+    }
+
+//    public void guardarConsumible() {
+//        CRUDConsumible cc = new CRUDConsumible();
+//        POJOConsumible cl = new POJOConsumible(
+//                jTextFieldfecha.getText(),
+//                jTextFieldNombre.getText(),
+//                Float.parseFloat(jTextFieldPrecioCompra.getText()),
+//                jTextFielDescripcion.getText(),
+//                Float.parseFloat(jTextFieldPrecioVenta.getText()),
+//                jTextFieldCombomostra.getText(),
+//                Integer.parseInt(jTextFieldCantidad.getText())
+//        );
+//
+//        cc.Guardar(cl);
+//    }
+//
+//    public void editarConsumible() {
+//
+//        CRUDConsumible cc = new CRUDConsumible();
+//
+//        POJOConsumible cl = new POJOConsumible(Integer.parseInt(jTextFieldIDConsumible.getText()),
+//                jTextFieldfecha.getText(),
+//                jTextFieldNombre.getText(),
+//                 Float.parseFloat(jTextFieldPrecioCompra.getText()),
+//                jTextFielDescripcion.getText(),
+//                Float.parseFloat(jTextFieldPrecioVenta.getText()),
+//                jTextFieldCombomostra.getText(),
+//                Integer.parseInt(jTextFieldCantidad.getText()));
+//
+//        cc.ActualizarDatos(cl);
+//
+//    }
+//
+//    public void mostrar() {
+//        try {
+//            DefaultTableModel modelo;
+//            CRUDConsumible cli = new CRUDConsumible();
+//            modelo = cli.mostrarDatos();
+//            jTableProducto.setModel(modelo);
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//    }
+    
+    public void JugarConCamposDeTexto(){
+        //Metodo para jugar con los campos de texto xD.
+        if(comboCategoria.getSelectedItem().toString().equals("Comestible")){
+            //Mostrar campos comestibles
+            lbVencimiento.setVisible(true);
+            txtFechaVencimiento.setVisible(true);
+            //Ocultar
+            lbMarca.setVisible(false);
+            txtMarca.setVisible(false);
+            lbPlataforma.setVisible(false);
+            txtPlataforma.setVisible(false);
+        }else if(comboCategoria.getSelectedItem().toString().equals("Electronico")){
+            //Mostrar campos Electronicos
+            lbMarca.setVisible(true);
+            txtMarca.setVisible(true);
+            //Ocultar
+            lbVencimiento.setVisible(false);
+            txtFechaVencimiento.setVisible(false);
+            lbPlataforma.setVisible(false);
+            txtPlataforma.setVisible(false);
+            
+        }else if(comboCategoria.getSelectedItem().toString().equals("Videojuego")){
+             //Mostrar campos VideoJuegos
+            lbPlataforma.setVisible(true);
+            txtPlataforma.setVisible(true);
+            //Ocultar
+            lbVencimiento.setVisible(false);
+            txtFechaVencimiento.setVisible(false);
+            lbMarca.setVisible(false);
+            txtMarca.setVisible(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -21,25 +109,33 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
-        jTextFieldCantidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldPrecio = new javax.swing.JTextField();
+        jTextFieldPrecioCompra = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextFielDescripcion = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
         botonmostrar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableProducto = new javax.swing.JTable();
         jTextFieldBuscar = new javax.swing.JTextField();
-        jButtonBuscar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jButtonActualizar = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jTextFieldIDProducto = new javax.swing.JTextField();
         comboCategoria = new javax.swing.JComboBox<>();
+        lbMarca = new javax.swing.JLabel();
+        jTextFieldPrecioVenta = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextFieldIDConsumible = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jSpinner1 = new javax.swing.JSpinner();
+        txtMarca = new javax.swing.JTextField();
+        txtFechaVencimiento = new javax.swing.JFormattedTextField();
+        lbVencimiento = new javax.swing.JLabel();
+        txtPlataforma = new javax.swing.JTextField();
+        lbPlataforma = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
 
@@ -57,57 +153,43 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro De Consumibles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI Semibold", 1, 36))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro De Productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI Semibold", 1, 36))); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 670));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel2.setText("Registrar Nombre");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 120, 20));
+        jLabel2.setText("ID Consumible");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 20));
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 487, -1));
-
-        jTextFieldCantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCantidadActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextFieldCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 487, -1));
+        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 130, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel5.setText("Cantidad");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 70, 20));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 60, 20));
 
-        jTextFieldPrecio.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPrecioCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPrecioActionPerformed(evt);
+                jTextFieldPrecioCompraActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 487, -1));
+        jPanel2.add(jTextFieldPrecioCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel6.setText("Precio");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 50, 20));
+        jLabel6.setText("Precio Compra");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 100, 20));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel8.setText("Descripcion");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 80, 20));
-
-        jTextFielDescripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielDescripcionActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextFielDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 487, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, 20));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel9.setText("Categoria");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 70, 20));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 70, 20));
 
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,15 +197,20 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 82, 31));
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 82, 31));
 
         botonmostrar.setText("Mostrar");
+        botonmostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonmostrarMouseClicked(evt);
+            }
+        });
         botonmostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonmostrarActionPerformed(evt);
             }
         });
-        jPanel2.add(botonmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, 20));
+        jPanel2.add(botonmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, 30));
 
         jTableProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,23 +238,14 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableProducto);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 740, 220));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 740, 220));
 
         jTextFieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldBuscarKeyReleased(evt);
             }
         });
-        jPanel2.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 550, 40));
-
-        jButtonBuscar.setBackground(new java.awt.Color(204, 255, 255));
-        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Buscar2.png"))); // NOI18N
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, -1, 40));
+        jPanel2.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 550, 30));
 
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +253,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 jButtonEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 82, 31));
+        jPanel2.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 82, 31));
 
         jButtonEditar.setText("Editar");
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +261,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 jButtonEditarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 82, 31));
+        jPanel2.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 82, 31));
 
         jButtonActualizar.setText("Actualizar");
         jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -191,41 +269,84 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 jButtonActualizarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 120, 31));
-
-        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 90, -1, -1));
-
-        jTextFieldIDProducto.setText("jTextField1");
-        jPanel2.add(jTextFieldIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, -1, -1));
+        jPanel2.add(jButtonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 120, 31));
 
         comboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Electronico", "Videojuego" }));
+        comboCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboCategoriaMouseClicked(evt);
+            }
+        });
         comboCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCategoriaActionPerformed(evt);
             }
         });
-        jPanel2.add(comboCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 310, -1));
+        jPanel2.add(comboCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 130, -1));
 
-        jButton1.setText("Aceptar");
+        lbMarca.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lbMarca.setText("Marca");
+        jPanel2.add(lbMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, -1, 20));
+
+        jTextFieldPrecioVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPrecioVentaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextFieldPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 130, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel10.setText("Precio venta");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 90, 20));
+        jPanel2.add(jTextFieldIDConsumible, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel4.setText("Registrar Nombre");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 120, 20));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 240, 80));
+        jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, -1, -1));
+
+        txtMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMarcaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, 130, -1));
+
+        try {
+            txtFechaVencimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jPanel2.add(txtFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 130, -1));
+
+        lbVencimiento.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lbVencimiento.setText("Vencimiento");
+        jPanel2.add(lbVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 90, 20));
+
+        txtPlataforma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlataformaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtPlataforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 130, -1));
+
+        lbPlataforma.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        lbPlataforma.setText("Plataforma");
+        jPanel2.add(lbPlataforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 90, 20));
+
+        jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
 
         Cerrar.setBackground(new java.awt.Color(204, 255, 255));
         Cerrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -237,88 +358,154 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 CerrarActionPerformed(evt);
             }
         });
-        jPanel2.add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 40, 30, 30));
+        jPanel2.add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 30, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+    private void jTextFieldPrecioVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecioVentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+    }//GEN-LAST:event_jTextFieldPrecioVentaActionPerformed
 
-    private void jTextFieldCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCantidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCantidadActionPerformed
+    private void comboCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoriaActionPerformed
 
-    private void jTextFieldPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPrecioActionPerformed
+        // Obtener la opción seleccionada en el ComboBox
+        String opcionSeleccionada = (String) comboCategoria.getSelectedItem();
 
-    private void jTextFielDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielDescripcionActionPerformed
+        // Pasar la opción seleccionada al JTextField
+//        jTextFieldCombomostra.setText(opcionSeleccionada);
+    }//GEN-LAST:event_comboCategoriaActionPerformed
 
-    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
 
-    }//GEN-LAST:event_jButtonGuardarActionPerformed
+//        editarConsumible();
+//        mostrar();
+    }//GEN-LAST:event_jButtonActualizarActionPerformed
 
-    private void botonmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmostrarActionPerformed
-        
-    }//GEN-LAST:event_botonmostrarActionPerformed
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+//
+//        if (datoSeleccionado >= 0) {
+//            RegistroConsumibles.jTextFieldIDConsumible.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 1)));
+//            RegistroConsumibles.jTextFieldNombre.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 2)));
+//            RegistroConsumibles.jTextFielDescripcion.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 5)));
+//            RegistroConsumibles.jTextFieldCantidad.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 7)));
+//            RegistroConsumibles.jTextFieldPrecioCompra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 3)));
+//            RegistroConsumibles.jTextFieldfecha.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 6)));
+//            RegistroConsumibles.jTextFieldPrecioVenta.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 4)));
+//            RegistroConsumibles.jTextFieldCombomostra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 7)));
+//
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Debe seleccionar un registro a actualizar");
+//        }
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
-    private void jTableProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProductoMouseClicked
-        
-    }//GEN-LAST:event_jTableProductoMouseClicked
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+
+        if (datoSeleccionado >= 0) {
+            int dato = Integer.valueOf(jTableProducto.getValueAt(datoSeleccionado, 0).toString());
+            CRUDConsumible cli = new CRUDConsumible();
+            if (JOptionPane.showConfirmDialog(rootPane,
+                "Se eliminará el registro, ¿desea continuar?",
+                "Eliminar Registro",
+                JOptionPane.WARNING_MESSAGE,
+                JOptionPane.YES_NO_OPTION)
+            == JOptionPane.YES_OPTION) {
+
+            cli.Eliminar(dato);
+//            mostrar();
+            JOptionPane.showMessageDialog(null,
+                "Dato eliminado correctamente");
+        }
+        } else {
+            JOptionPane.showMessageDialog(null,
+                "Debe seleccionar un registro de la tabla");
+        }
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jTextFieldBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarKeyReleased
 
     }//GEN-LAST:event_jTextFieldBuscarKeyReleased
 
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
+    private void jTableProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProductoMouseClicked
 
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
+        datoSeleccionado = jTableProducto.rowAtPoint(evt.getPoint());
+    }//GEN-LAST:event_jTableProductoMouseClicked
 
-    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        
-    }//GEN-LAST:event_jButtonEditarActionPerformed
+    private void botonmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmostrarActionPerformed
 
-    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-        
-    }//GEN-LAST:event_jButtonActualizarActionPerformed
+    }//GEN-LAST:event_botonmostrarActionPerformed
 
-    private void comboCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoriaActionPerformed
-
+    private void botonmostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonmostrarMouseClicked
         // TODO add your handling code here:
+        // Generar reporte de los clientes
 
-    }//GEN-LAST:event_comboCategoriaActionPerformed
+    }//GEN-LAST:event_botonmostrarMouseClicked
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+//
+//        CRUDConsumible cl = new CRUDConsumible();
+//        try {
+//            if ((jTextFieldNombre.getText().equals(""))
+//                || (jTextFielDescripcion.getText().equals(""))
+//                || (jTextFieldCantidad.getText().equals(""))
+//                || (jTextFieldPrecioCompra.getText().equals(""))
+//                || (jTextFieldfecha.getText().equals(""))
+//                || (jTextFieldPrecioVenta.getText().equals(""))
+//                || (jTextFieldCombomostra.getText().equals(""))) {
+//                JOptionPane.showMessageDialog(null, "Tiene datos vacio");
+//
+//            } else {
+//                guardarConsumible();
+//                mostrar();
+//
+//                JOptionPane.showMessageDialog(null, "Datos guardados");
+//
+//            }
+//
+//        } catch (HeadlessException e) {
+//            JOptionPane.showMessageDialog(null, "Error: " + e);
+//
+//        }
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    private void jTextFieldPrecioCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecioCompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPrecioCompraActionPerformed
+
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+
+    private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMarcaActionPerformed
+
+    private void txtPlataformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlataformaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlataformaActionPerformed
+
+    private void comboCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboCategoriaMouseClicked
+        // TODO add your handling code here:
+        JugarConCamposDeTexto();
+    }//GEN-LAST:event_comboCategoriaMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        JugarConCamposDeTexto();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
-       try {
+        try {
             Menuprincipal panel2 = new Menuprincipal()
             ;
             panel2.setVisible(true);
@@ -328,35 +515,13 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CerrarActionPerformed
 
+    private final Conexion con = new Conexion();
+    private final Connection cn = con.conectar();
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistroConsumibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistroConsumibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistroConsumibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroConsumibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RegistroConsumibles().setVisible(true);
@@ -370,25 +535,33 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboCategoria;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonActualizar;
-    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonEliminar;
     public static javax.swing.JButton jButtonGuardar;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTableProducto;
-    public static javax.swing.JTextField jTextFielDescripcion;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextFieldBuscar;
-    public static javax.swing.JTextField jTextFieldCantidad;
-    public static javax.swing.JTextField jTextFieldIDProducto;
+    public static javax.swing.JTextField jTextFieldIDConsumible;
     public static javax.swing.JTextField jTextFieldNombre;
-    public static javax.swing.JTextField jTextFieldPrecio;
+    public static javax.swing.JTextField jTextFieldPrecioCompra;
+    public static javax.swing.JTextField jTextFieldPrecioVenta;
+    private javax.swing.JLabel lbMarca;
+    private javax.swing.JLabel lbPlataforma;
+    private javax.swing.JLabel lbVencimiento;
+    private javax.swing.JFormattedTextField txtFechaVencimiento;
+    public static javax.swing.JTextField txtMarca;
+    public static javax.swing.JTextField txtPlataforma;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,3 @@
-
 package POJOS;
 
 /**
@@ -6,71 +5,73 @@ package POJOS;
  * @author Usuario
  */
 public class POJOProducto {
-    
-    int ID_Producto;
-    String Nombre;
-    String Descripcion;
-    String Cantidad;
-    String Precio;
+
+    int id_producto;
+
+    String nombre;
+    float precio_compra;
+    String descripcion;
+    float Precio_Venta;
     String Categoria;
+    int Cantidad;
 
-    public POJOProducto(int ID_Producto, String Nombre, String Descripcion, String Cantidad, String Precio, String Categoria) {
-        this.ID_Producto = ID_Producto;
-        this.Nombre = Nombre;
-        this.Descripcion = Descripcion;
-        this.Cantidad = Cantidad;
-        this.Precio = Precio;
+    public POJOProducto(int id_producto, String nombre, float precio_compra, String descripcion, float Precio_Venta, String Categoria, int Cantidad) {
+        this.id_producto = id_producto;
+        this.nombre = nombre;
+        this.precio_compra = precio_compra;
+        this.descripcion = descripcion;
+        this.Precio_Venta = Precio_Venta;
         this.Categoria = Categoria;
-    }
-
-    
-
-    public POJOProducto(String Nombre, String Descripcion, String Cantidad, String Precio, String Categoria) {
-        this.Nombre = Nombre;
-        this.Descripcion = Descripcion;
         this.Cantidad = Cantidad;
-        this.Precio = Precio;
+    }
+
+    public POJOProducto(String nombre, float precio_compra, String descripcion, float Precio_Venta, String Categoria, int Cantidad) {
+        this.nombre = nombre;
+        this.precio_compra = precio_compra;
+        this.descripcion = descripcion;
+        this.Precio_Venta = Precio_Venta;
         this.Categoria = Categoria;
+        this.Cantidad = Cantidad;
     }
 
-    public int getID_Producto() {
-        return ID_Producto;
+    public int getId_producto() {
+        return id_producto;
     }
 
-    public void setID_Producto(int ID_Producto) {
-        this.ID_Producto = ID_Producto;
+    public void setId_producto(int id_producto) {
+        this.id_producto = id_producto;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public float getPrecio_compra() {
+        return precio_compra;
+    }
+
+    public void setPrecio_compra(float precio_compra) {
+        this.precio_compra = precio_compra;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getCantidad() {
-        return Cantidad;
+    public float getPrecio_Venta() {
+        return Precio_Venta;
     }
 
-    public void setCantidad(String Cantidad) {
-        this.Cantidad = Cantidad;
-    }
-
-    public String getPrecio() {
-        return Precio;
-    }
-
-    public void setPrecio(String Precio) {
-        this.Precio = Precio;
+    public void setPrecio_Venta(float Precio_Venta) {
+        this.Precio_Venta = Precio_Venta;
     }
 
     public String getCategoria() {
@@ -80,8 +81,15 @@ public class POJOProducto {
     public void setCategoria(String Categoria) {
         this.Categoria = Categoria;
     }
-    
-    
-    
-    
+
+    public int getCantidad() {
+        return Cantidad;
+    }
+
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
+    }
+
+   
+
 }

@@ -14,24 +14,23 @@ public class CRUDElectronico {
     private final Conexion con = new Conexion();
     private final Connection cn = con.conectar();
 
-   // ...
-public void Guardar(POJOElectronico eletronico) {
-    try {
-        CallableStatement cbst = cn.prepareCall("{call CrearElectronico(?,?,?,?,?,?,?)}");
-
-        cbst.setInt(1, eletronico.getIdProducto());
-        cbst.setString(2, eletronico.getCodigo());
-        cbst.setString(3, eletronico.getNombre());
-        cbst.setDouble(4, eletronico.getPrecioCompra());
-        cbst.setString(5, eletronico.getDescripcion());
-        cbst.setString(6, eletronico.getMarca());
-        cbst.setString(7, eletronico.getCategoria());
-
-        cbst.executeUpdate();
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, e);
-    }
-}
+//    public void Guardar(POJOElectronico eletronico) {
+//    try {
+//        CallableStatement cbst = cn.prepareCall("{call CrearElectronico(?,?,?,?,?,?,?)}");
+//
+//        cbst.setInt(1, eletronico.getIdProducto());
+//        cbst.setString(2, eletronico.getCodigo());
+//        cbst.setString(3, eletronico.getNombre());
+//        cbst.setDouble(4, eletronico.getPrecioCompra());
+//        cbst.setString(5, eletronico.getDescripcion());
+//        cbst.setString(6, eletronico.getMarca());
+//        cbst.setString(7, eletronico.getCategoria());
+//
+//        cbst.executeUpdate();
+//    } catch (SQLException e) {
+//        JOptionPane.showMessageDialog(null, e);
+//    }
+//}
 
 
 
@@ -103,13 +102,15 @@ public void Guardar(POJOElectronico eletronico) {
         }
     }
 
-    public void actualizarDatosElectronico(POJOElectronico electronico) {
-        try{
-            CallableStatement cbst = cn.prepareCall("{call ModificarElectronico(?,?,?,?,?,?,?)}");
-
-            cbst.setInt(1, electronico.getIdProducto());
-        }
-        catch(SQLException e){
-        }
-    }
+//    public void actualizarDatosElectronico(POJOElectronico electronico) {
+//        try{
+//            CallableStatement cbst = cn.prepareCall("{call ModificarElectronico(?,?,?,?,?,?,?)}");
+//
+//            cbst.setInt(1, electronico.getIdProducto());
+//        }
+//        catch(SQLException e){
+//        }
+//    }
 }
+
+
