@@ -72,13 +72,16 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         //Metodo para jugar con los campos de texto xD.
         if(comboCategoria.getSelectedItem().toString().equals("Comestible")){
             //Mostrar campos comestibles
+            
             lbVencimiento.setVisible(true);
             txtFechaVencimiento.setVisible(true);
             //Ocultar
+       
             lbMarca.setVisible(false);
             txtMarca.setVisible(false);
             lbPlataforma.setVisible(false);
             txtPlataforma.setVisible(false);
+       
         }else if(comboCategoria.getSelectedItem().toString().equals("Electronico")){
             //Mostrar campos Electronicos
             lbMarca.setVisible(true);

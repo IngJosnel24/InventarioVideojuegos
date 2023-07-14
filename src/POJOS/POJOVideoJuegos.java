@@ -5,27 +5,19 @@ package POJOS;
  *
  * @author Oneyker21
  */
-public class POJOVideoJuegos {
+public class POJOVideoJuegos extends POJOProducto{
     private int idVideoJuego;
-    private int idProducto;
-    private String nombre;
-    private double precioCompra;
-    private String descripcion;
     private String plataforma;
-    private String fechaLanzamiento;
 
-    public POJOVideoJuegos() {
+    public POJOVideoJuegos(String plataforma, String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad) {
+        super(nombre, precio_compra, descripcion, Precio_Venta, Cantidad);
+        this.plataforma = plataforma;
     }
 
-    public POJOVideoJuegos(int idVideoJuego, int idProducto, String nombre, double precioCompra, String descripcion,
-            String plataforma, String fechaLanzamiento) {
+    public POJOVideoJuegos(int idVideoJuego, String plataforma, int id_producto, String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad) {
+        super(id_producto, nombre, precio_compra, descripcion, Precio_Venta, Cantidad);
         this.idVideoJuego = idVideoJuego;
-        this.idProducto = idProducto;
-        this.nombre = nombre;
-        this.precioCompra = precioCompra;
-        this.descripcion = descripcion;
         this.plataforma = plataforma;
-        this.fechaLanzamiento = fechaLanzamiento;
     }
 
     public int getIdVideoJuego() {
@@ -36,12 +28,20 @@ public class POJOVideoJuegos {
         this.idVideoJuego = idVideoJuego;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public String getPlataforma() {
+        return plataforma;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setPlataforma(String plataforma) {
+        this.plataforma = plataforma;
+    }
+
+    public int getId_producto() {
+        return id_producto;
+    }
+
+    public void setId_producto(int id_producto) {
+        this.id_producto = id_producto;
     }
 
     public String getNombre() {
@@ -52,12 +52,12 @@ public class POJOVideoJuegos {
         this.nombre = nombre;
     }
 
-    public double getPrecioCompra() {
-        return precioCompra;
+    public float getPrecio_compra() {
+        return precio_compra;
     }
 
-    public void setPrecioCompra(double precioCompra) {
-        this.precioCompra = precioCompra;
+    public void setPrecio_compra(float precio_compra) {
+        this.precio_compra = precio_compra;
     }
 
     public String getDescripcion() {
@@ -68,21 +68,24 @@ public class POJOVideoJuegos {
         this.descripcion = descripcion;
     }
 
-    public String getPlataforma() {
-        return plataforma;
+    public float getPrecio_Venta() {
+        return Precio_Venta;
     }
 
-    public void setPlataforma(String plataforma) {
-        this.plataforma = plataforma;
+    public void setPrecio_Venta(float Precio_Venta) {
+        this.Precio_Venta = Precio_Venta;
     }
 
-    public String getFechaLanzamiento() {
-        return fechaLanzamiento;
+    public int getCantidad() {
+        return Cantidad;
     }
 
-    public void setFechaLanzamiento(String fechaLanzamiento) {
-        this.fechaLanzamiento = fechaLanzamiento;
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
     }
+ 
+   
+   
 }
 
 

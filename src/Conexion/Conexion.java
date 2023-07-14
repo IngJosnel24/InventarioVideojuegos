@@ -11,7 +11,7 @@ public class Conexion {
 
     
     private final String 
-            conexionUrl = "jdbc:sqlserver://localhost:1433;"
+            conexionUrl = "jdbc:sqlserver://localhost:51386;"
             + "database=DB_ELTORO;"
             + "integratedSecurity = true;" + " encrypt= true;trustServerCertificate= true;";
 
