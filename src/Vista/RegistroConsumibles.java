@@ -75,32 +75,52 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             
             lbVencimiento.setVisible(true);
             txtFechaVencimiento.setVisible(true);
+            jTextFieldIDConsumible1.setVisible(true);
+            jLabel3.setVisible(true);
             //Ocultar
        
             lbMarca.setVisible(false);
             txtMarca.setVisible(false);
             lbPlataforma.setVisible(false);
             txtPlataforma.setVisible(false);
+<<<<<<< HEAD
        
+=======
+            labelidelectronico.setVisible(false);
+            labelidvideojuego1.setVisible(false);
+            jTextFieldIDVideoJuego1.setVisible(false);
+            jTextFieldIDElectronico.setVisible(false);
+>>>>>>> 6ee38558988b1b63360b5641f829c1d41e7bfc95
         }else if(comboCategoria.getSelectedItem().toString().equals("Electronico")){
             //Mostrar campos Electronicos
             lbMarca.setVisible(true);
             txtMarca.setVisible(true);
+            jTextFieldIDElectronico.setVisible(true);
+            labelidelectronico.setVisible(true);
             //Ocultar
             lbVencimiento.setVisible(false);
             txtFechaVencimiento.setVisible(false);
             lbPlataforma.setVisible(false);
             txtPlataforma.setVisible(false);
+            jTextFieldIDConsumible1.setVisible(false);
+            jTextFieldIDVideoJuego1.setVisible(false);
+            labelidvideojuego1.setVisible(false);
+            jLabel3.setVisible(false);
             
         }else if(comboCategoria.getSelectedItem().toString().equals("Videojuego")){
              //Mostrar campos VideoJuegos
             lbPlataforma.setVisible(true);
             txtPlataforma.setVisible(true);
+            jTextFieldIDVideoJuego1.setVisible(true);
+            labelidvideojuego1.setVisible(true);
             //Ocultar
             lbVencimiento.setVisible(false);
             txtFechaVencimiento.setVisible(false);
             lbMarca.setVisible(false);
             txtMarca.setVisible(false);
+            jLabel3.setVisible(false);
+            jTextFieldIDConsumible1.setVisible(false);
+            labelidvideojuego1.setVisible(false);
         }
     }
 
@@ -110,7 +130,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        labelidelectronico = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldPrecioCompra = new javax.swing.JTextField();
@@ -129,7 +149,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         lbMarca = new javax.swing.JLabel();
         jTextFieldPrecioVenta = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextFieldIDConsumible = new javax.swing.JTextField();
+        jTextFieldIDElectronico = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -141,6 +161,10 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         lbPlataforma = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        labelidvideojuego1 = new javax.swing.JLabel();
+        jTextFieldIDConsumible1 = new javax.swing.JTextField();
+        jTextFieldIDVideoJuego1 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -160,9 +184,9 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 670));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel2.setText("ID Consumible");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 20));
+        labelidelectronico.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        labelidelectronico.setText("ID Electronico");
+        jPanel2.add(labelidelectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 20));
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,7 +313,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
         lbMarca.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lbMarca.setText("Marca");
-        jPanel2.add(lbMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, -1, 20));
+        jPanel2.add(lbMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, -1, 20));
 
         jTextFieldPrecioVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +325,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel10.setText("Precio venta");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 90, 20));
-        jPanel2.add(jTextFieldIDConsumible, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
+        jPanel2.add(jTextFieldIDElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel4.setText("Registrar Nombre");
@@ -319,18 +343,18 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 txtMarcaActionPerformed(evt);
             }
         });
-        jPanel2.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, 130, -1));
+        jPanel2.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 130, -1));
 
         try {
             txtFechaVencimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPanel2.add(txtFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 130, -1));
+        jPanel2.add(txtFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 130, -1));
 
         lbVencimiento.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lbVencimiento.setText("Vencimiento");
-        jPanel2.add(lbVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 90, 20));
+        jPanel2.add(lbVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 90, 20));
 
         txtPlataforma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -362,6 +386,16 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 30, 30, 30));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel3.setText("ID Consumible");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 20));
+
+        labelidvideojuego1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        labelidvideojuego1.setText("ID VideoJuego");
+        jPanel2.add(labelidvideojuego1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 20));
+        jPanel2.add(jTextFieldIDConsumible1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
+        jPanel2.add(jTextFieldIDVideoJuego1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -542,7 +576,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEliminar;
     public static javax.swing.JButton jButtonGuardar;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -556,10 +590,14 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JTable jTableProducto;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextFieldBuscar;
-    public static javax.swing.JTextField jTextFieldIDConsumible;
+    public static javax.swing.JTextField jTextFieldIDConsumible1;
+    public static javax.swing.JTextField jTextFieldIDElectronico;
+    public static javax.swing.JTextField jTextFieldIDVideoJuego1;
     public static javax.swing.JTextField jTextFieldNombre;
     public static javax.swing.JTextField jTextFieldPrecioCompra;
     public static javax.swing.JTextField jTextFieldPrecioVenta;
+    private javax.swing.JLabel labelidelectronico;
+    private javax.swing.JLabel labelidvideojuego1;
     private javax.swing.JLabel lbMarca;
     private javax.swing.JLabel lbPlataforma;
     private javax.swing.JLabel lbVencimiento;
