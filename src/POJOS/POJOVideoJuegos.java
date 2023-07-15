@@ -1,6 +1,8 @@
 
 package POJOS;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author Oneyker21
@@ -9,14 +11,14 @@ public class POJOVideoJuegos extends POJOProducto{
     private int idVideoJuego;
     private String plataforma;
 
-    public POJOVideoJuegos(String plataforma, String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad) {
-        super(nombre, precio_compra, descripcion, Precio_Venta, Cantidad);
+    public POJOVideoJuegos(int idVideoJuego, String plataforma, int id_producto, String nombre, BigDecimal precio_compra, String descripcion, BigDecimal Precio_Venta, int Cantidad, String Categoria) {
+        super(id_producto, nombre, precio_compra, descripcion, Precio_Venta, Cantidad, Categoria);
+        this.idVideoJuego = idVideoJuego;
         this.plataforma = plataforma;
     }
 
-    public POJOVideoJuegos(int idVideoJuego, String plataforma, int id_producto, String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad) {
-        super(id_producto, nombre, precio_compra, descripcion, Precio_Venta, Cantidad);
-        this.idVideoJuego = idVideoJuego;
+    public POJOVideoJuegos(String plataforma, String nombre, BigDecimal precio_compra, String descripcion, BigDecimal Precio_Venta, int Cantidad, String Categoria) {
+        super(nombre, precio_compra, descripcion, Precio_Venta, Cantidad, Categoria);
         this.plataforma = plataforma;
     }
 
@@ -52,11 +54,11 @@ public class POJOVideoJuegos extends POJOProducto{
         this.nombre = nombre;
     }
 
-    public float getPrecio_compra() {
+    public BigDecimal getPrecio_compra() {
         return precio_compra;
     }
 
-    public void setPrecio_compra(float precio_compra) {
+    public void setPrecio_compra(BigDecimal precio_compra) {
         this.precio_compra = precio_compra;
     }
 
@@ -68,11 +70,11 @@ public class POJOVideoJuegos extends POJOProducto{
         this.descripcion = descripcion;
     }
 
-    public float getPrecio_Venta() {
+    public BigDecimal getPrecio_Venta() {
         return Precio_Venta;
     }
 
-    public void setPrecio_Venta(float Precio_Venta) {
+    public void setPrecio_Venta(BigDecimal Precio_Venta) {
         this.Precio_Venta = Precio_Venta;
     }
 
@@ -83,8 +85,16 @@ public class POJOVideoJuegos extends POJOProducto{
     public void setCantidad(int Cantidad) {
         this.Cantidad = Cantidad;
     }
- 
-   
+
+    public String getCategoria() {
+        return Categoria;
+    }
+
+    public void setCategoria(String Categoria) {
+        this.Categoria = Categoria;
+    }
+
+    
    
 }
 

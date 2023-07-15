@@ -2,6 +2,7 @@ package Controlador.Conexion;
 
 import Conexion.Conexion;
 import POJOS.POJOElectronico;
+import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,23 +15,24 @@ public class CRUDElectronico {
     private final Conexion con = new Conexion();
     private final Connection cn = con.conectar();
 
-//    public void Guardar(POJOElectronico eletronico) {
-//    try {
-//        CallableStatement cbst = cn.prepareCall("{call CrearElectronico(?,?,?,?,?,?,?)}");
-//
-//        cbst.setInt(1, eletronico.getIdProducto());
-//        cbst.setString(2, eletronico.getCodigo());
-//        cbst.setString(3, eletronico.getNombre());
-//        cbst.setDouble(4, eletronico.getPrecioCompra());
-//        cbst.setString(5, eletronico.getDescripcion());
-//        cbst.setString(6, eletronico.getMarca());
-//        cbst.setString(7, eletronico.getCategoria());
-//
-//        cbst.executeUpdate();
-//    } catch (SQLException e) {
-//        JOptionPane.showMessageDialog(null, e);
-//    }
-//}
+    public void Guardar(POJOElectronico eletronico) {
+    try {
+        CallableStatement cbst = cn.prepareCall("{call CrearElectronico(?,?,?,?,?,?,?)}");
+
+        cbst.setString(1, eletronico.getNombre());
+        cbst.setBigDecimal(2, eletronico.getPrecio_compra());
+        cbst.setBigDecimal(3, eletronico.getPrecio_Venta());
+        cbst.setString(4, eletronico.getDescripcion());
+        cbst.setInt(5, eletronico.getCantidad());
+        cbst.setString(6, eletronico.getCategoria());
+        cbst.setString(7, eletronico.getMarca());
+        
+
+        cbst.executeUpdate();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
+    }
+}
 
 
 

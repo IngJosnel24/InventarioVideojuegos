@@ -2,7 +2,9 @@ package Vista;
 
 import Conexion.Conexion;
 import Controlador.Conexion.CRUDConsumible;
+import Controlador.Conexion.CRUDElectronico;
 import POJOS.POJOConsumible;
+import POJOS.POJOElectronico;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.math.BigDecimal;
@@ -57,6 +59,24 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
         cc.Guardar(cl);
     }
+    
+    public void guardarElectronico() {
+      
+
+        CRUDElectronico cc = new CRUDElectronico();
+        POJOElectronico cl = new POJOElectronico(
+               txtMarca.getText(),
+                jTextFieldNombre.getText(),
+                new BigDecimal(jTextFieldPrecioCompra.getText()),
+                jTextArea1.getText(),
+                new BigDecimal(jTextFieldPrecioVenta.getText()),
+                (int) jSpinner1.getValue(),
+                comboCategoria.getSelectedItem().toString());
+
+        cc.Guardar(cl);
+    }
+    
+    
 
     public void editarConsumible() {
 
@@ -105,8 +125,9 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             txtFechaVencimiento.setVisible(true);
             jTextFieldIDConsumible1.setVisible(true);
             jLabel3.setVisible(true);
+            
             //Ocultar
-
+            guardarelectronico.setVisible(false);
             lbMarca.setVisible(false);
             txtMarca.setVisible(false);
             lbPlataforma.setVisible(false);
@@ -122,11 +143,13 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         } else if (comboCategoria.getSelectedItem().toString().equals("Electronico")) {
 
             //Mostrar campos Electronicos
+            guardarelectronico.setVisible(true);
             lbMarca.setVisible(true);
             txtMarca.setVisible(true);
             jTextFieldIDElectronico.setVisible(true);
             labelidelectronico.setVisible(true);
             //Ocultar
+            jButtonGuardar.setVisible(false);
             lbVencimiento.setVisible(false);
             txtFechaVencimiento.setVisible(false);
             lbPlataforma.setVisible(false);
@@ -194,6 +217,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jTextFieldIDConsumible1 = new javax.swing.JTextField();
         jTextFieldIDVideoJuego1 = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
+        guardarelectronico = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -253,7 +277,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 82, 31));
+        jPanel2.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 82, 31));
 
         botonmostrar.setText("Mostrar");
         botonmostrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -427,6 +451,14 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, -1, 30));
 
+        guardarelectronico.setText("Guardar");
+        guardarelectronico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarelectronicoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(guardarelectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 80, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -594,6 +626,30 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
+    private void guardarelectronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarelectronicoActionPerformed
+       
+        CRUDElectronico cl = new CRUDElectronico();
+        try {
+            if ((jTextFieldNombre.getText().equals(""))
+                    || (jTextFieldPrecioCompra.getText().equals(""))
+                    || (txtFechaVencimiento.getText().equals(""))
+                    || (jTextFieldPrecioVenta.getText().equals(""))
+                    || (comboCategoria.getSelectedItem().equals(""))) {
+                JOptionPane.showMessageDialog(null, "Tiene datos vacio");
+
+            } else {
+                guardarElectronico();
+
+                JOptionPane.showMessageDialog(null, "Datos guardados");
+
+            }
+
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+
+        }
+    }//GEN-LAST:event_guardarelectronicoActionPerformed
+
     private final Conexion con = new Conexion();
     private final Connection cn = con.conectar();
 
@@ -612,6 +668,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton botonmostrar;
     private javax.swing.JComboBox<String> comboCategoria;
+    private javax.swing.JButton guardarelectronico;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBuscar;
