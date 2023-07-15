@@ -12,6 +12,9 @@ import java.text.SimpleDateFormat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 import javax.swing.JDialog;
 
@@ -69,13 +72,14 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        
+
         CRUDConsumible cc = new CRUDConsumible();
 
         POJOConsumible cl = new POJOConsumible(Integer.parseInt(jTextFieldIDConsumible1.getText()),
                 fecha,
+                Integer.parseInt(jTextFieldIDProducto.getText()),
                 jTextFieldNombre.getText(),
-                 new BigDecimal(jTextFieldPrecioCompra.getText()),
+                new BigDecimal(jTextFieldPrecioCompra.getText()),
                 jTextArea1.getText(),
                 new BigDecimal(jTextFieldPrecioVenta.getText()),
                 (int) jSpinner1.getValue(),
@@ -85,6 +89,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
     }
 //
+
     public void mostrar() {
         try {
             DefaultTableModel modelo;
@@ -116,8 +121,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             labelidvideojuego1.setVisible(false);
             jTextFieldIDVideoJuego1.setVisible(false);
             jTextFieldIDElectronico.setVisible(false);
-
-
 
         } else if (comboCategoria.getSelectedItem().toString().equals("Electronico")) {
 
@@ -194,6 +197,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jTextFieldIDConsumible1 = new javax.swing.JTextField();
         jTextFieldIDVideoJuego1 = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
+        jTextFieldIDProducto = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -426,6 +430,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, -1, 30));
+        jPanel2.add(jTextFieldIDProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -456,25 +461,46 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
 
-//        editarConsumible();
-//        mostrar();
+        editarConsumible();
+        mostrar();
+
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
 
-//        if (datoSeleccionado >= 0) {
-//            RegistroConsumibles.jTextFieldIDConsumible1.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 0)));
-//            RegistroConsumibles.jTextFieldNombre.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 2)));
-//            RegistroConsumibles.jTextArea1.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 5)));
-//            RegistroConsumibles.jTextFieldCantidad.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 7)));
-//            RegistroConsumibles.jTextFieldPrecioCompra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 3)));
-//            RegistroConsumibles.jTextFieldfecha.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 6)));
-//            RegistroConsumibles.jTextFieldPrecioVenta.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 4)));
-//            RegistroConsumibles.jTextFieldCombomostra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 7)));
-//
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Debe seleccionar un registro a actualizar");
-//        }
+        if (datoSeleccionado >= 0) {
+            RegistroConsumibles.jTextFieldIDProducto.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 0)));
+            RegistroConsumibles.jTextFieldIDConsumible1.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 1)));
+            RegistroConsumibles.jTextFieldNombre.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 2)));
+            RegistroConsumibles.jTextArea1.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 8)));
+
+            RegistroConsumibles.jTextFieldPrecioCompra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 3)));
+
+            String fechaTabla = String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 5));
+
+            try {
+                // Parsear la fecha de entrada en formato "yyyy-MM-dd" a un objeto LocalDate
+                LocalDate fechaLocal = LocalDate.parse(fechaTabla, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S"));
+
+                // Crear un objeto DateTimeFormatter para el formato de salida "dd/MM/yyyy"
+                DateTimeFormatter formatoSalida = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                // Formatear la fecha en el formato deseado "dd/mm/yyyy"
+                String fechaFormateada = fechaLocal.format(formatoSalida);
+
+                // Establecer el valor formateado en el JTextField
+                RegistroConsumibles.txtFechaVencimiento.setText(fechaFormateada);
+
+            } catch (DateTimeParseException e) {
+                // Manejar cualquier error de parsing de la fecha
+                e.printStackTrace();
+            }
+
+            RegistroConsumibles.jTextFieldPrecioVenta.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 4)));
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un registro a actualizar");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
@@ -490,6 +516,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                     == JOptionPane.YES_OPTION) {
 
                 cli.Eliminar(dato);
+                mostrar();
 //            mostrar();
                 JOptionPane.showMessageDialog(null,
                         "Dato eliminado correctamente");
@@ -510,7 +537,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableProductoMouseClicked
 
     private void botonmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmostrarActionPerformed
- Producto dialog = new Producto(null, true);
+        Producto dialog = new Producto(null, true);
         RegistroConsumibles vv = new RegistroConsumibles();
         dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         dialog.setResizable(false);
@@ -525,8 +552,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     }//GEN-LAST:event_botonmostrarMouseClicked
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-
-      
 
         CRUDConsumible cl = new CRUDConsumible();
         try {
@@ -631,10 +656,11 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTableProducto;
-    private javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextFieldBuscar;
     public static javax.swing.JTextField jTextFieldIDConsumible1;
     public static javax.swing.JTextField jTextFieldIDElectronico;
+    public static javax.swing.JTextField jTextFieldIDProducto;
     public static javax.swing.JTextField jTextFieldIDVideoJuego1;
     public static javax.swing.JTextField jTextFieldNombre;
     public static javax.swing.JTextField jTextFieldPrecioCompra;
@@ -644,7 +670,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JLabel lbMarca;
     private javax.swing.JLabel lbPlataforma;
     private javax.swing.JLabel lbVencimiento;
-    private javax.swing.JFormattedTextField txtFechaVencimiento;
+    public static javax.swing.JFormattedTextField txtFechaVencimiento;
     public static javax.swing.JTextField txtMarca;
     public static javax.swing.JTextField txtPlataforma;
     // End of variables declaration//GEN-END:variables

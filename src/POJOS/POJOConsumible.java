@@ -23,12 +23,9 @@ public class POJOConsumible extends POJOProducto {
         this.fecha_vencimiento = fecha_vencimiento;
     }
 
-    public POJOConsumible(int id_Consumible, Date fecha_vencimiento, String nombre, BigDecimal precio_compra, String descripcion, BigDecimal Precio_Venta, int Cantidad, String Categoria) {
-        super(nombre, precio_compra, descripcion, Precio_Venta, Cantidad, Categoria);
-        this.id_Consumible = id_Consumible;
-        this.fecha_vencimiento = fecha_vencimiento;
-    }
+    
 
+    
     
     
     public int getId_Consumible() {
