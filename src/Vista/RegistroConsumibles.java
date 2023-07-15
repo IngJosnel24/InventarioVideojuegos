@@ -5,7 +5,10 @@ import Controlador.Conexion.CRUDConsumible;
 import POJOS.POJOConsumible;
 import java.awt.HeadlessException;
 import java.io.File;
+import java.math.BigDecimal;
 import java.sql.Connection;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,35 +29,55 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     }
 
     public void guardarConsumible() {
+        String strFecha = txtFechaVencimiento.getText();
+        java.sql.Date fecha = null;
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            java.util.Date utilFecha = format.parse(strFecha);
+            fecha = new java.sql.Date(utilFecha.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         CRUDConsumible cc = new CRUDConsumible();
         POJOConsumible cl = new POJOConsumible(
-                txtFechaVencimiento.getText(),
+                fecha,
                 jTextFieldNombre.getText(),
-                Float.parseFloat(jTextFieldPrecioCompra.getText()),
+                new BigDecimal(jTextFieldPrecioCompra.getText()),
                 jTextArea1.getText(),
-                Float.parseFloat(jTextFieldPrecioVenta.getText()),
+                new BigDecimal(jTextFieldPrecioVenta.getText()),
                 (int) jSpinner1.getValue(),
                 comboCategoria.getSelectedItem().toString());
 
         cc.Guardar(cl);
     }
-//
-//    public void editarConsumible() {
-//
-//        CRUDConsumible cc = new CRUDConsumible();
-//
-//        POJOConsumible cl = new POJOConsumible(Integer.parseInt(jTextFieldIDConsumible.getText()),
-//                jTextFieldfecha.getText(),
-//                jTextFieldNombre.getText(),
-//                 Float.parseFloat(jTextFieldPrecioCompra.getText()),
-//                jTextFielDescripcion.getText(),
-//                Float.parseFloat(jTextFieldPrecioVenta.getText()),
-//                jTextFieldCombomostra.getText(),
-//                Integer.parseInt(jTextFieldCantidad.getText()));
-//
-//        cc.ActualizarDatos(cl);
-//
-//    }
+
+    public void editarConsumible() {
+
+        String strFecha = txtFechaVencimiento.getText();
+        java.sql.Date fecha = null;
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            java.util.Date utilFecha = format.parse(strFecha);
+            fecha = new java.sql.Date(utilFecha.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+        CRUDConsumible cc = new CRUDConsumible();
+
+        POJOConsumible cl = new POJOConsumible(Integer.parseInt(jTextFieldIDConsumible1.getText()),
+                fecha,
+                jTextFieldNombre.getText(),
+                 new BigDecimal(jTextFieldPrecioCompra.getText()),
+                jTextArea1.getText(),
+                new BigDecimal(jTextFieldPrecioVenta.getText()),
+                (int) jSpinner1.getValue(),
+                comboCategoria.getSelectedItem().toString());
+
+        cc.ActualizarDatos(cl);
+
+    }
 //
     public void mostrar() {
         try {
@@ -424,20 +447,20 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-//
-//        if (datoSeleccionado >= 0) {
-//            RegistroConsumibles.jTextFieldIDConsumible.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 1)));
-//            RegistroConsumibles.jTextFieldNombre.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 2)));
-//            RegistroConsumibles.jTextFielDescripcion.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 5)));
-//            RegistroConsumibles.jTextFieldCantidad.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 7)));
-//            RegistroConsumibles.jTextFieldPrecioCompra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 3)));
-//            RegistroConsumibles.jTextFieldfecha.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 6)));
-//            RegistroConsumibles.jTextFieldPrecioVenta.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 4)));
-//            RegistroConsumibles.jTextFieldCombomostra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 7)));
-//
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Debe seleccionar un registro a actualizar");
-//        }
+
+        if (datoSeleccionado >= 0) {
+            RegistroConsumibles.jTextFieldIDConsumible1.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 0)));
+            RegistroConsumibles.jTextFieldNombre.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 2)));
+            RegistroConsumibles.jTextArea1.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 5)));
+            RegistroConsumibles.jTextFieldCantidad.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 7)));
+            RegistroConsumibles.jTextFieldPrecioCompra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 3)));
+            RegistroConsumibles.jTextFieldfecha.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 6)));
+            RegistroConsumibles.jTextFieldPrecioVenta.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 4)));
+            RegistroConsumibles.jTextFieldCombomostra.setText(String.valueOf(jTableProducto.getValueAt(datoSeleccionado, 7)));
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un registro a actualizar");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
@@ -487,17 +510,16 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         CRUDConsumible cl = new CRUDConsumible();
         try {
             if ((jTextFieldNombre.getText().equals(""))
-                || (jTextArea1.getText().equals(""))
-                || (jSpinner1.getValue().equals(0))
-                || (jTextFieldPrecioCompra.getText().equals(""))
-                || (txtFechaVencimiento.getText().equals(""))
-                || (jTextFieldPrecioVenta.getText().equals(""))
-                || (comboCategoria.getSelectedItem().equals(""))) {
+                    || (jTextArea1.getText().equals(""))
+                    || (jSpinner1.getValue().equals(0))
+                    || (jTextFieldPrecioCompra.getText().equals(""))
+                    || (txtFechaVencimiento.getText().equals(""))
+                    || (jTextFieldPrecioVenta.getText().equals(""))
+                    || (comboCategoria.getSelectedItem().equals(""))) {
                 JOptionPane.showMessageDialog(null, "Tiene datos vacio");
 
             } else {
                 guardarConsumible();
-                
 
                 JOptionPane.showMessageDialog(null, "Datos guardados");
 
@@ -583,7 +605,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTableProducto;

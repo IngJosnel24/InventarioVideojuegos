@@ -1,5 +1,7 @@
 package POJOS;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author Usuario
@@ -8,13 +10,13 @@ public class POJOProducto {
 
     int id_producto;
     String nombre;
-    float precio_compra;
+    BigDecimal  precio_compra;
     String descripcion;
-    float Precio_Venta;
+    BigDecimal  Precio_Venta;
     int Cantidad;
     String Categoria;
 
-    public POJOProducto(int id_producto, String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad, String Categoria) {
+    public POJOProducto(int id_producto, String nombre, BigDecimal  precio_compra, String descripcion, BigDecimal  Precio_Venta, int Cantidad, String Categoria) {
         this.id_producto = id_producto;
         this.nombre = nombre;
         this.precio_compra = precio_compra;
@@ -24,7 +26,7 @@ public class POJOProducto {
         this.Categoria = Categoria;
     }
 
-    public POJOProducto(String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad, String Categoria) {
+    public POJOProducto(String nombre, BigDecimal  precio_compra, String descripcion, BigDecimal  Precio_Venta, int Cantidad, String Categoria) {
         this.nombre = nombre;
         this.precio_compra = precio_compra;
         this.descripcion = descripcion;
@@ -51,11 +53,11 @@ public class POJOProducto {
         this.nombre = nombre;
     }
 
-    public float getPrecio_compra() {
+    public BigDecimal  getPrecio_compra() {
         return precio_compra;
     }
 
-    public void setPrecio_compra(float precio_compra) {
+    public void setPrecio_compra(BigDecimal  precio_compra) {
         this.precio_compra = precio_compra;
     }
 
@@ -67,11 +69,11 @@ public class POJOProducto {
         this.descripcion = descripcion;
     }
 
-    public float getPrecio_Venta() {
+    public BigDecimal  getPrecio_Venta() {
         return Precio_Venta;
     }
 
-    public void setPrecio_Venta(float Precio_Venta) {
+    public void setPrecio_Venta(BigDecimal  Precio_Venta) {
         this.Precio_Venta = Precio_Venta;
     }
 
