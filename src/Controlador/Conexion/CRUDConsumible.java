@@ -25,15 +25,16 @@ public class CRUDConsumible {
     public void Guardar(POJOConsumible Cl) {
         try {
             CallableStatement cbst = cn.prepareCall("{call CrearConsumible(?,?,?,?,?,?,?)}");
-            cbst.setString(1, Cl.getNombre());
+            cbst.setString(1, Cl.getNombre()); 
             cbst.setFloat(2, Cl.getPrecio_compra());
-
             cbst.setFloat(3, Cl.getPrecio_Venta());
-
             cbst.setString(4, Cl.getDescripcion());
             cbst.setString(5, Cl.getFecha_vencimiento());
             cbst.setInt(6, Cl.getCantidad());
-            cbst.setString(7, Cl.getCategoria());
+            
+          
+            System.out.println("El consumible ha sido creado correctamente.");
+          
 
             cbst.executeUpdate();
         } catch (SQLException e) {
@@ -72,6 +73,7 @@ public class CRUDConsumible {
             }
             return modelo;
         } catch (SQLException e) {
+      
             JOptionPane.showMessageDialog(null, e);
             return null;
         }
@@ -101,7 +103,6 @@ public class CRUDConsumible {
             cbst.setString(5, C1.getDescripcion());
             cbst.setString(6, C1.getFecha_vencimiento());
             cbst.setInt(7, C1.getCantidad());
-            cbst.setString(8, C1.getCategoria());
             cbst.executeUpdate();
 
         } catch (SQLException e) {
