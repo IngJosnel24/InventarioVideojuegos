@@ -7,8 +7,12 @@ import java.awt.HeadlessException;
 import java.io.File;
 import java.math.BigDecimal;
 import java.sql.Connection;
+<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+=======
+import javax.swing.JDialog;
+>>>>>>> 940d779e4c14c1dfb087c1b9562259ae865befed
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -105,13 +109,20 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             txtMarca.setVisible(false);
             lbPlataforma.setVisible(false);
             txtPlataforma.setVisible(false);
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
             labelidelectronico.setVisible(false);
             labelidvideojuego1.setVisible(false);
             jTextFieldIDVideoJuego1.setVisible(false);
             jTextFieldIDElectronico.setVisible(false);
+<<<<<<< HEAD
+        }else if(comboCategoria.getSelectedItem().toString().equals("Electronico")){
+=======
 
         } else if (comboCategoria.getSelectedItem().toString().equals("Electronico")) {
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
             //Mostrar campos Electronicos
             lbMarca.setVisible(true);
             txtMarca.setVisible(true);
@@ -261,17 +272,22 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
         jTableProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Produto", "Producto", "Cantidad", "Precio", "Categoria"
+                "ID Produto", "Producto", "Cantidad", "Precio", "Categoria", "Fecha vencimiento", "Plataforma", "Descripcion"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Object.class, java.lang.Long.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -285,7 +301,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableProducto);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 740, 220));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 880, 270));
 
         jTextFieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -417,7 +433,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1003, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,7 +512,12 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableProductoMouseClicked
 
     private void botonmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonmostrarActionPerformed
-
+ Producto dialog = new Producto(null, true);
+        RegistroConsumibles vv = new RegistroConsumibles();
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        dialog.setResizable(false);
+        dialog.setLocationRelativeTo(vv);
+        dialog.setVisible(true);
     }//GEN-LAST:event_botonmostrarActionPerformed
 
     private void botonmostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonmostrarMouseClicked
@@ -506,6 +527,32 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     }//GEN-LAST:event_botonmostrarMouseClicked
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+<<<<<<< HEAD
+        
+//        CRUDConsumible cl = new CRUDConsumible();
+//        try {
+//            if ((jTextFieldNombre.getText().equals(""))
+//                || (jTextFielDescripcion.getText().equals(""))
+//                || (jTextFieldCantidad.getText().equals(""))
+//                || (jTextFieldPrecioCompra.getText().equals(""))
+//                || (jTextFieldfecha.getText().equals(""))
+//                || (jTextFieldPrecioVenta.getText().equals(""))
+//                || (jTextFieldCombomostra.getText().equals(""))) {
+//                JOptionPane.showMessageDialog(null, "Tiene datos vacio");
+//
+//            } else {
+//                guardarConsumible();
+//                mostrar();
+//
+//                JOptionPane.showMessageDialog(null, "Datos guardados");
+//
+//            }
+//
+//        } catch (HeadlessException e) {
+//            JOptionPane.showMessageDialog(null, "Error: " + e);
+//
+//        }
+=======
 
         CRUDConsumible cl = new CRUDConsumible();
         try {
@@ -529,6 +576,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error: " + e);
 
         }
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jTextFieldPrecioCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecioCompraActionPerformed

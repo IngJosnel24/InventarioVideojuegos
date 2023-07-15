@@ -25,13 +25,32 @@ public class CRUDConsumible {
     public void Guardar(POJOConsumible Cl) {
         try {
             CallableStatement cbst = cn.prepareCall("{call CrearConsumible(?,?,?,?,?,?,?)}");
+<<<<<<< HEAD
             cbst.setString(1, Cl.getNombre());
             cbst.setBigDecimal(2, Cl.getPrecio_compra());
             cbst.setBigDecimal(3, Cl.getPrecio_Venta());
+=======
+            cbst.setString(1, Cl.getNombre()); 
+            cbst.setFloat(2, Cl.getPrecio_compra());
+            cbst.setFloat(3, Cl.getPrecio_Venta());
+>>>>>>> 940d779e4c14c1dfb087c1b9562259ae865befed
             cbst.setString(4, Cl.getDescripcion());
+<<<<<<< HEAD
+            cbst.setString(5, Cl.getFecha_vencimiento());
+            cbst.setInt(6, Cl.getCantidad());
+            
+          
+            System.out.println("El consumible ha sido creado correctamente.");
+          
+=======
             cbst.setInt(5, Cl.getCantidad());
             cbst.setString(6, Cl.getCategoria());
+<<<<<<< HEAD
             cbst.setDate(7, Cl.getFecha_vencimiento());
+=======
+            cbst.setString(7, Cl.getFecha_vencimiento());
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
+>>>>>>> 940d779e4c14c1dfb087c1b9562259ae865befed
 
             cbst.executeUpdate();
         } catch (SQLException e) {
@@ -59,12 +78,25 @@ public class CRUDConsumible {
                 registro[5] = rs.getString("Categoria");
                 registro[6] = rs.getString("cantidad");
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 940d779e4c14c1dfb087c1b9562259ae865befed
                 modelo.addRow(registro);
             }
             return modelo;
         } catch (SQLException e) {
+<<<<<<< HEAD
             JOptionPane.showMessageDialog(null, e);
             return null;
+=======
+      
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+=======
+            modelo.addRow(registro);
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
+>>>>>>> 940d779e4c14c1dfb087c1b9562259ae865befed
         }
     }
 
@@ -108,6 +140,7 @@ public class CRUDConsumible {
         }
     }
 
+<<<<<<< HEAD
     public void ActualizarDatos(POJOConsumible C1) {
         try {
             CallableStatement cbst = cn.prepareCall("{call ModificarConsumible(?,?,?,?,?,?,?)}");
@@ -121,9 +154,44 @@ public class CRUDConsumible {
             cbst.setInt(7, C1.getCantidad());
             cbst.setString(8, C1.getCategoria());
             cbst.executeUpdate();
+=======
+<<<<<<< HEAD
+            cbst.setInt(1, C1.getId_producto());
+            cbst.setString(2, C1.getNombre());
+            cbst.setFloat(3, C1.getPrecio_compra());
+            cbst.setFloat(4, C1.getPrecio_Venta());
+            cbst.setString(5, C1.getDescripcion());
+            cbst.setString(6, C1.getFecha_vencimiento());
+            cbst.setInt(7, C1.getCantidad());
+            cbst.executeUpdate();
+
+>>>>>>> 940d779e4c14c1dfb087c1b9562259ae865befed
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+<<<<<<< HEAD
 
+=======
+=======
+//    public void ActualizarDatos(POJOConsumible C1) {
+//        try {
+//            CallableStatement cbst = cn.prepareCall("{call ModificarConsumible(?,?,?,?,?,?,?,?)}");
+//
+//            cbst.setInt(1, C1.getId_producto());
+//            cbst.setString(2, C1.getNombre());
+//            cbst.setFloat(3, C1.getPrecio_compra());
+//            cbst.setFloat(4, C1.getPrecio_Venta());
+//            cbst.setString(5, C1.getDescripcion());
+//            cbst.setString(6, C1.getFecha_vencimiento());
+//            cbst.setInt(7, C1.getCantidad());
+//            cbst.setString(8, C1.getCategoria());
+//            cbst.executeUpdate();
+//
+//        } catch (SQLException e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//    }
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
+>>>>>>> 940d779e4c14c1dfb087c1b9562259ae865befed
 }
