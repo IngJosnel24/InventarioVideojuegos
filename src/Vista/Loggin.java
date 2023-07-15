@@ -38,6 +38,7 @@ public class Loggin extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(153, 255, 153));
         jButton1.setText("Entrar");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -45,7 +46,7 @@ public class Loggin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 50, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, 50, 30));
 
         jPasswordPin.setBackground(new java.awt.Color(178, 178, 178));
         jPasswordPin.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -63,7 +64,7 @@ public class Loggin extends javax.swing.JFrame {
                 jPasswordPinKeyPressed(evt);
             }
         });
-        jPanel2.add(jPasswordPin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 170, 60));
+        jPanel2.add(jPasswordPin, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 170, 60));
 
         jTextUsuario.setBackground(new java.awt.Color(178, 178, 178));
         jTextUsuario.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -81,8 +82,9 @@ public class Loggin extends javax.swing.JFrame {
                 jTextUsuarioKeyPressed(evt);
             }
         });
-        jPanel2.add(jTextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 180, 60));
+        jPanel2.add(jTextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 180, 60));
 
+        jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setText("Salir");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -90,10 +92,10 @@ public class Loggin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 50, 30));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 50, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1687968369999.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 460, 280));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 460, 280));
 
         LBADVERTENCIA2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jPanel2.add(LBADVERTENCIA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 270, 30));
@@ -105,17 +107,11 @@ public class Loggin extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 928, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
