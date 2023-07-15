@@ -46,8 +46,8 @@ public class CRUDConsumible {
     public DefaultTableModel mostrarDatos() {
         ResultSet rs;
         DefaultTableModel modelo;
-        String[] titulos = {"ID_Consumible", "Nombre", "Precio compra", "Precio venta", "Fecha vencimiento", "Categoria", "Cantidad"};
-        String[] registro = new String[7];
+        String[] titulos = {"ID_Producto", "ID_Consumible", "Nombre", "Precio compra", "Precio venta", "Fecha vencimiento", "Categoria", "Cantidad", "Descripcion"};
+        String[] registro = new String[9];
         modelo = new DefaultTableModel(null, titulos);
 
         try {
@@ -55,13 +55,15 @@ public class CRUDConsumible {
             rs = cbstc.executeQuery();
 
             while (rs.next()) {
-                registro[0] = rs.getString("id_Consumible");
-                registro[1] = rs.getString("nombre");
-                registro[2] = rs.getString("precio_compra");
-                registro[3] = rs.getString("precio_venta");
-                registro[4] = rs.getString("fecha_vencimiento");
-                registro[5] = rs.getString("Categoria");
-                registro[6] = rs.getString("cantidad");
+                registro[0] = rs.getString("id_producto");
+                registro[1] = rs.getString("id_Consumible");
+                registro[2] = rs.getString("nombre");
+                registro[3] = rs.getString("precio_compra");
+                registro[4] = rs.getString("precio_venta");
+                registro[5] = rs.getString("fecha_vencimiento");
+                registro[6] = rs.getString("Categoria");
+                registro[7] = rs.getString("cantidad");
+                registro[8] = rs.getString("descripcion");
 
                 modelo.addRow(registro);
             }
@@ -116,21 +118,21 @@ public class CRUDConsumible {
 
     public void ActualizarDatos(POJOConsumible C1) {
         try {
-            CallableStatement cbst = cn.prepareCall("{call ModificarConsumible(?,?,?,?,?,?,?)}");
+            CallableStatement cbst = cn.prepareCall("{call ModificarConsumible(?,?,?,?,?,?,?,?,?)}");
 
-            cbst.setInt(1, C1.getId_Consumible());
-            cbst.setString(2, C1.getNombre());
-            cbst.setBigDecimal(3, C1.getPrecio_compra());
-            cbst.setBigDecimal(4, C1.getPrecio_Venta());
-            cbst.setString(5, C1.getDescripcion());
-            cbst.setDate(6, C1.getFecha_vencimiento());
+            cbst.setInt(1, C1.getId_producto());
+            cbst.setInt(2, C1.getId_Consumible());
+            cbst.setString(3, C1.getNombre());
+            cbst.setBigDecimal(4, C1.getPrecio_compra());
+            cbst.setBigDecimal(5, C1.getPrecio_Venta());
+            cbst.setString(6, C1.getDescripcion());
             cbst.setInt(7, C1.getCantidad());
-            cbst.setString(8, C1.getCategoria());
+            cbst.setDate(8, C1.getFecha_vencimiento());
+            cbst.setString(9, C1.getCategoria());
             cbst.executeUpdate();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 }
