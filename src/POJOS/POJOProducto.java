@@ -12,22 +12,25 @@ public class POJOProducto {
     String descripcion;
     float Precio_Venta;
     int Cantidad;
+    String Categoria;
 
-    public POJOProducto(int id_producto, String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad) {
+    public POJOProducto(int id_producto, String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad, String Categoria) {
         this.id_producto = id_producto;
         this.nombre = nombre;
         this.precio_compra = precio_compra;
         this.descripcion = descripcion;
         this.Precio_Venta = Precio_Venta;
         this.Cantidad = Cantidad;
+        this.Categoria = Categoria;
     }
 
-    public POJOProducto(String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad) {
+    public POJOProducto(String nombre, float precio_compra, String descripcion, float Precio_Venta, int Cantidad, String Categoria) {
         this.nombre = nombre;
         this.precio_compra = precio_compra;
         this.descripcion = descripcion;
         this.Precio_Venta = Precio_Venta;
         this.Cantidad = Cantidad;
+        this.Categoria = Categoria;
     }
     
     
@@ -79,8 +82,17 @@ public class POJOProducto {
     public void setCantidad(int Cantidad) {
         this.Cantidad = Cantidad;
     }
+
+    public String getCategoria() {
+        return Categoria;
+    }
+
+    public void setCategoria(String Categoria) {
+        this.Categoria = Categoria;
+    }
     
     
 
+    
   
 }

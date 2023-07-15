@@ -29,12 +29,18 @@ public class CRUDConsumible {
             cbst.setFloat(2, Cl.getPrecio_compra());
             cbst.setFloat(3, Cl.getPrecio_Venta());
             cbst.setString(4, Cl.getDescripcion());
+<<<<<<< HEAD
             cbst.setString(5, Cl.getFecha_vencimiento());
             cbst.setInt(6, Cl.getCantidad());
             
           
             System.out.println("El consumible ha sido creado correctamente.");
           
+=======
+            cbst.setInt(5, Cl.getCantidad());
+            cbst.setString(6, Cl.getCategoria());
+            cbst.setString(7, Cl.getFecha_vencimiento());
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
 
             cbst.executeUpdate();
         } catch (SQLException e) {
@@ -43,32 +49,27 @@ public class CRUDConsumible {
 
     }
 
-    
-    
-    
-    
     public DefaultTableModel mostrarDatos() {
-        ResultSet rs;
-        DefaultTableModel modelo;
-        String[] titulos = {"ID_Producto","ID_Consumible", "Nombre", "Precio compra", "precio venta", "Descripcion", "Fecha vencimiento", "Cantidad"};
-        String[] registro = new String[8];
-        modelo = new DefaultTableModel(null, titulos);
+    ResultSet rs;
+    DefaultTableModel modelo;
+    String[] titulos = {"ID_Producto", "Nombre", "Precio compra", "Precio venta", "Fecha vencimiento", "Categoria", "Cantidad"};
+    String[] registro = new String[7];
+    modelo = new DefaultTableModel(null, titulos);
 
-        try {
-            CallableStatement cbstc = cn.prepareCall("{call MostrarConsumible}");
-            rs = cbstc.executeQuery();
+    try {
+        CallableStatement cbstc = cn.prepareCall("{call MostrarConsumible}");
+        rs = cbstc.executeQuery();
 
-            while (rs.next()) {
-                registro[0] = rs.getString("id_producto");
-                registro[1] = rs.getString("id_Consumible");
-                registro[2] = rs.getString("nombre");
-                registro[3] = rs.getString("precio_compra");
-                registro[4] = rs.getString("Precio_Venta");
-                registro[5] = rs.getString("descripcion");
-                registro[6] = rs.getString("fecha_vencimiento");
-                registro[7] = rs.getString("Cantidad");
-                
+        while (rs.next()) {
+            registro[0] = rs.getString("id_producto");
+            registro[1] = rs.getString("nombre");
+            registro[2] = rs.getString("precio_compra");
+            registro[3] = rs.getString("precio_venta");
+            registro[4] = rs.getString("fecha_vencimiento");
+            registro[5] = rs.getString("Categoria");
+            registro[6] = rs.getString("cantidad");
 
+<<<<<<< HEAD
                 modelo.addRow(registro);
             }
             return modelo;
@@ -76,10 +77,49 @@ public class CRUDConsumible {
       
             JOptionPane.showMessageDialog(null, e);
             return null;
+=======
+            modelo.addRow(registro);
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
         }
-
+        return modelo;
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
+        return null;
     }
+}
+
     
+    public DefaultTableModel buscarDatosConsumible(String dato) {
+    ResultSet rs;
+    DefaultTableModel modelo;
+    String[] titulos = {"ID_Producto", "Nombre", "Precio compra", "Precio venta", "Fecha vencimiento", "Categoria", "Cantidad"};
+    String[] registro = new String[7];
+    modelo = new DefaultTableModel(null, titulos);
+
+    try {
+        CallableStatement call = cn.prepareCall("{call ConsultarConsumible(?)}");
+        call.setString(1, dato);
+        rs = call.executeQuery();
+
+        while (rs.next()) {
+            registro[0] = rs.getString("id_producto");
+            registro[1] = rs.getString("nombre");
+            registro[2] = rs.getString("precio_compra");
+            registro[3] = rs.getString("precio_venta");
+            registro[4] = rs.getString("fecha_vencimiento");
+            registro[5] = rs.getString("Categoria");
+            registro[6] = rs.getString("cantidad");
+
+            modelo.addRow(registro);
+        }
+        return modelo;
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, e);
+        return null;
+    }
+}
+
+
     public void Eliminar(int id_producto) {
         try {
             CallableStatement cbst = cn.prepareCall("{call EliminarConsumible(?)}");
@@ -89,13 +129,8 @@ public class CRUDConsumible {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
-    
-    
-    public void ActualizarDatos(POJOConsumible C1) {
-        try {
-            CallableStatement cbst = cn.prepareCall("{call ModificarConsumible(?,?,?,?,?,?,?,?)}");
 
+<<<<<<< HEAD
             cbst.setInt(1, C1.getId_producto());
             cbst.setString(2, C1.getNombre());
             cbst.setFloat(3, C1.getPrecio_compra());
@@ -109,4 +144,24 @@ public class CRUDConsumible {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+=======
+//    public void ActualizarDatos(POJOConsumible C1) {
+//        try {
+//            CallableStatement cbst = cn.prepareCall("{call ModificarConsumible(?,?,?,?,?,?,?,?)}");
+//
+//            cbst.setInt(1, C1.getId_producto());
+//            cbst.setString(2, C1.getNombre());
+//            cbst.setFloat(3, C1.getPrecio_compra());
+//            cbst.setFloat(4, C1.getPrecio_Venta());
+//            cbst.setString(5, C1.getDescripcion());
+//            cbst.setString(6, C1.getFecha_vencimiento());
+//            cbst.setInt(7, C1.getCantidad());
+//            cbst.setString(8, C1.getCategoria());
+//            cbst.executeUpdate();
+//
+//        } catch (SQLException e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//    }
+>>>>>>> 3cb63287923e0693b6ba79ab8c9af8689d60e987
 }
