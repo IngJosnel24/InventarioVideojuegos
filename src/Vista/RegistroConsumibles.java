@@ -517,7 +517,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
                 cli.Eliminar(dato);
                 mostrar();
-//            mostrar();
+
                 JOptionPane.showMessageDialog(null,
                         "Dato eliminado correctamente");
             }
