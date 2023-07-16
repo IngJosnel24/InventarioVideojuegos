@@ -36,11 +36,11 @@ public class CRUDElectronico {
 
 
 
-    public DefaultTableModel mostrarElectronicos() {
+    public DefaultTableModel mostrarDatos2() {
         ResultSet rs;
         DefaultTableModel modelo;
-        String[] titulos = {"ID_Producto", "Codigo", "Nombre", "PrecioCompra", "Descripcion", "Marca", "Categoria"};
-        String[] registro = new String[7];
+        String[] titulos = {"ID_Producto", "ID_Electronico", "Nombre", "Precio compra", "Precio venta", " Marca", "Categoria", "Cantidad", "Descripcion"};
+        String[] registro = new String[9];
         modelo = new DefaultTableModel(null, titulos);
 
         try {
@@ -48,20 +48,24 @@ public class CRUDElectronico {
             rs = cbstc.executeQuery();
 
             while (rs.next()) {
-                registro[0] = rs.getString("ID_Producto");
-                registro[1] = rs.getString("Codigo");
-                registro[2] = rs.getString("Nombre");
-                registro[3] = rs.getString("PrecioCompra");
-                registro[4] = rs.getString("Descripcion");
-                registro[5] = rs.getString("Marca");
+                registro[0] = rs.getString("id_producto");
+                registro[1] = rs.getString("id_electronicos");
+                registro[2] = rs.getString("nombre");
+                registro[3] = rs.getString("precio_compra");
+                registro[4] = rs.getString("precio_venta");
+                registro[5] = rs.getString("marca");
                 registro[6] = rs.getString("Categoria");
+                registro[7] = rs.getString("cantidad");
+                registro[8] = rs.getString("descripcion");
 
                 modelo.addRow(registro);
             }
             return modelo;
         } catch (SQLException e) {
+
             JOptionPane.showMessageDialog(null, e);
             return null;
+
         }
     }
 
