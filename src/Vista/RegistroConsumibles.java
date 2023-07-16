@@ -921,7 +921,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldBuscar;
     public static javax.swing.JTextField jTextFieldIDConsumible1;
     public static javax.swing.JTextField jTextFieldIDElectronico;
-    public static javax.swing.JTextField jTextFieldIDProducto;
+    private javax.swing.JTextField jTextFieldIDProducto;
     public static javax.swing.JTextField jTextFieldIDVideoJuego1;
     public static javax.swing.JTextField jTextFieldNombre;
     public static javax.swing.JTextField jTextFieldPrecioCompra;
