@@ -258,6 +258,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             jTextFieldIDElectronico.setVisible(true);
             labelidelectronico.setVisible(true);
             jTableElectronico.setVisible(true);
+            jTextFieldIDElectronico.setVisible(true);
             //Ocultar
             consumibles.setVisible(false);
             videojuego.setVisible(false);
@@ -275,15 +276,18 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             tablaElectronico.setVisible(true);
             
             
+            
 
         } else if (comboCategoria.getSelectedItem().toString().equals("Videojuego")) {
             //Mostrar campos VideoJuegos
             videojuego.setVisible(true);
+            labelidvideojuego1.setVisible(true);
             lbPlataforma.setVisible(true);
             txtPlataforma.setVisible(true);
             jTextFieldIDVideoJuego1.setVisible(true);
             labelidvideojuego1.setVisible(true);
             tablavideojuegos.setVisible(true);
+            
             //Ocultar
             consumibles.setVisible(false);
             electronico.setVisible(false);
@@ -293,10 +297,12 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             txtMarca.setVisible(false);
             jLabel3.setVisible(false);
             jTextFieldIDConsumible1.setVisible(false);
-            labelidvideojuego1.setVisible(false);
             TablaConsumibles.setVisible(false);
             tablaElectronico.setVisible(false);
             jTableElectronico.setVisible(false);
+            jTextFieldIDConsumible1.setVisible(false);
+            jLabel3.setVisible(false);
+            labelidelectronico.setVisible(false);
             mostrarVideojuego();
             
         }
