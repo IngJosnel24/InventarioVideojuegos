@@ -244,6 +244,7 @@ public class RegistroDeVentas extends javax.swing.JFrame {
             TablaConsumibles.setVisible(true);
             tablaElectronico.setVisible(false);
             mostrarConsumible();
+            
             //Ocultar
 
             lbMarca.setVisible(false);
@@ -270,7 +271,9 @@ public class RegistroDeVentas extends javax.swing.JFrame {
             labelidelectronico.setVisible(true);
             tableelectronicos.setVisible(true);
             jTextFieldIDElectronico.setVisible(true);
+            
             //Ocultar
+            
             consumibles.setVisible(false);
             videojuego.setVisible(false);
             lbVencimiento.setVisible(false);
@@ -299,6 +302,7 @@ public class RegistroDeVentas extends javax.swing.JFrame {
             mostrarVideojuego();
 
             //Ocultar
+            
             consumibles.setVisible(false);
             electronico.setVisible(false);
             lbVencimiento.setVisible(false);
