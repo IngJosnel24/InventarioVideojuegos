@@ -3,11 +3,12 @@ package Vista;
 import Conexion.Conexion;
 import Controlador.Conexion.CRUDConsumible;
 import Controlador.Conexion.CRUDElectronico;
-import Controlador.Conexion.CRUDVideoJuegos;
+import Controlador.Conexion.*;
 import POJOS.POJOConsumible;
 import POJOS.POJOElectronico;
 import POJOS.POJOVideoJuegos;
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -21,7 +22,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 import javax.swing.JDialog;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -36,6 +36,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
     public RegistroConsumibles() {
         initComponents();
+        this.setLocationRelativeTo(null);
 
 //        mostrar();
         JugarConCamposDeTexto();
@@ -43,6 +44,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
     }
 
+    
     public void guardarConsumible() {
         String strFecha = txtFechaVencimiento.getText();
         java.sql.Date fecha = null;
@@ -220,9 +222,11 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             jTextFieldIDConsumible1.setVisible(true);
             jLabel3.setVisible(true);
             consumibles.setVisible(true);
-            TablaConsumibles.setVisible(true);
             tablaElectronico.setVisible(false);
+            EditarConsumible.setVisible(true);
+            jTableComestible.setVisible(true);
             mostrarConsumible();
+            EliminarC.setVisible(true);
             //Ocultar
 
             lbMarca.setVisible(false);
@@ -237,6 +241,10 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             jTextFieldIDElectronico.setVisible(false);
             tablavideojuegos.setVisible(false);
             tablaElectronico.setVisible(true);
+            EditarElectronico.setVisible(false);
+            EditarVideojuego.setVisible(false);
+            EliminarVJ.setVisible(false);
+            EliminarE.setVisible(false);
             
 
         } else if (comboCategoria.getSelectedItem().toString().equals("Electronico")) {
@@ -249,6 +257,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             labelidelectronico.setVisible(true);
             tableelectronicos.setVisible(true);
             jTextFieldIDElectronico.setVisible(true);
+            EliminarE.setVisible(true);
             //Ocultar
             consumibles.setVisible(false);
             videojuego.setVisible(false);
@@ -264,6 +273,8 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             TablaConsumibles.setVisible(false);
             tablavideojuegos.setVisible(false);
             tablaElectronico.setVisible(true);
+            EliminarC.setVisible(false);
+            EliminarVJ.setVisible(false);
 
         } else if (comboCategoria.getSelectedItem().toString().equals("Videojuego")) {
             //Mostrar campos VideoJuegos
@@ -275,6 +286,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             labelidvideojuego1.setVisible(true);
             tablavideojuegos.setVisible(true);
             EditarVideojuego.setVisible(true);
+            EliminarVJ.setVisible(true);
             mostrarVideojuego();
 
             //Ocultar
@@ -294,7 +306,8 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             labelidelectronico.setVisible(false);
             EditarConsumible.setVisible(false);
             EditarElectronico.setVisible(false);
-
+            EliminarE.setVisible(false);
+            EliminarE.setVisible(false);
         }
     }
 
@@ -316,7 +329,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         TablaConsumibles = new javax.swing.JScrollPane();
         jTableProducto = new javax.swing.JTable();
         jTextFieldBuscar = new javax.swing.JTextField();
-        jButtonEliminar = new javax.swing.JButton();
+        EliminarC = new javax.swing.JButton();
         EditarConsumible = new javax.swing.JButton();
         jButtonActualizar = new javax.swing.JButton();
         comboCategoria = new javax.swing.JComboBox<>();
@@ -349,6 +362,10 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         EditarElectronico = new javax.swing.JButton();
         EditarVideojuego = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableComestible = new javax.swing.JTable();
+        EliminarE = new javax.swing.JButton();
+        EliminarVJ = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -361,7 +378,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro De Productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI Semibold", 1, 36))); // NOI18N
@@ -377,6 +394,11 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 jTextFieldNombreActionPerformed(evt);
             }
         });
+        jTextFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 130, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -386,6 +408,11 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jTextFieldPrecioCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioCompraActionPerformed(evt);
+            }
+        });
+        jTextFieldPrecioCompra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPrecioCompraKeyTyped(evt);
             }
         });
         jPanel2.add(jTextFieldPrecioCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 130, -1));
@@ -454,7 +481,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         });
         TablaConsumibles.setViewportView(jTableProducto);
 
-        jPanel2.add(TablaConsumibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 880, 340));
+        jPanel2.add(TablaConsumibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 920, 340));
 
         jTextFieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -463,13 +490,13 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         });
         jPanel2.add(jTextFieldBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 550, 30));
 
-        jButtonEliminar.setText("Eliminar");
-        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+        EliminarC.setText("Eliminar");
+        EliminarC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarActionPerformed(evt);
+                EliminarCActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 82, 31));
+        jPanel2.add(EliminarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 82, 31));
 
         EditarConsumible.setText("Editar");
         EditarConsumible.addActionListener(new java.awt.event.ActionListener() {
@@ -509,6 +536,11 @@ public class RegistroConsumibles extends javax.swing.JFrame {
                 jTextFieldPrecioVentaActionPerformed(evt);
             }
         });
+        jTextFieldPrecioVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPrecioVentaKeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextFieldPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 130, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
@@ -525,7 +557,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 240, 80));
-        jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, -1, -1));
+        jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 120, -1));
 
         txtMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -637,7 +669,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         });
         tablavideojuegos.setViewportView(jTableVideojuegos);
 
-        jPanel2.add(tablavideojuegos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 880, -1));
+        jPanel2.add(tablavideojuegos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 880, -1));
 
         jButton2.setText("jButton2");
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, -1, -1));
@@ -658,6 +690,42 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         });
         jPanel2.add(EditarVideojuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 82, 31));
 
+        jTableComestible.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableComestible.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableComestibleMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableComestible);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 920, -1));
+
+        EliminarE.setText("Eliminar");
+        EliminarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarEActionPerformed(evt);
+            }
+        });
+        jPanel2.add(EliminarE, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 82, 31));
+
+        EliminarVJ.setText("Eliminar");
+        EliminarVJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarVJActionPerformed(evt);
+            }
+        });
+        jPanel2.add(EliminarVJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 82, 31));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -666,7 +734,9 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -693,27 +763,27 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void EditarConsumibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarConsumibleActionPerformed
-       int fila = this.tableelectronicos.getSelectedRow();
+       int fila = this.jTableComestible.getSelectedRow();
 
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Seleccione un producto de la tabla.");
         } else {
             try {
-                int IDProducto = Integer.parseInt((String) this.tableelectronicos.getValueAt(fila, 0));
-                int IDElectronico = Integer.parseInt((String) this.tableelectronicos.getValueAt(fila, 1));
-                String nombreP = (String) this.tableelectronicos.getValueAt(fila, 2).toString();
-                BigDecimal Ccompra = BigDecimal.valueOf(Double.parseDouble((String) this.tableelectronicos.getValueAt(fila, 3).toString()));
-                BigDecimal Cventa = BigDecimal.valueOf(Double.parseDouble((String) this.tableelectronicos.getValueAt(fila, 4).toString()));
-                String descripcion = (String) this.tableelectronicos.getValueAt(fila, 5).toString();
-                String marca = (String) this.tableelectronicos.getValueAt(fila, 6).toString();
-
+                int IDProducto = Integer.parseInt((String) this.jTableComestible.getValueAt(fila, 0));
+                int IDConsumible = Integer.parseInt((String) this.jTableComestible.getValueAt(fila, 1));
+                String nombreP = (String) this.jTableComestible.getValueAt(fila, 2).toString();
+                BigDecimal Ccompra = BigDecimal.valueOf(Double.parseDouble((String) this.jTableComestible.getValueAt(fila, 3).toString()));
+                BigDecimal Cventa = BigDecimal.valueOf(Double.parseDouble((String) this.jTableComestible.getValueAt(fila, 4).toString()));
+                String descripcion = (String) this.jTableComestible.getValueAt(fila, 5).toString();
+                
+               
                 idproductos.setText("" + IDProducto);
-                jTextFieldIDElectronico.setText(""+IDElectronico);
+                jTextFieldIDConsumible1.setText(""+IDConsumible);
                 jTextFieldNombre.setText(nombreP);
                 jTextFieldPrecioCompra.setText("" + Ccompra);
                 jTextFieldPrecioVenta.setText("" + Cventa);
                 jTextArea1.setText("" + descripcion);
-                txtMarca.setText(""+marca);
+             
          } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -722,7 +792,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EditarConsumibleActionPerformed
 
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+    private void EliminarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarCActionPerformed
 
         if (datoSeleccionado >= 0) {
             int dato = Integer.valueOf(jTableProducto.getValueAt(datoSeleccionado, 0).toString());
@@ -744,7 +814,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,
                     "Debe seleccionar un registro de la tabla");
         }
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
+    }//GEN-LAST:event_EliminarCActionPerformed
 
     private void jTextFieldBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarKeyReleased
 
@@ -956,6 +1026,54 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_EditarVideojuegoActionPerformed
 
+    private void jTableComestibleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableComestibleMouseClicked
+        datoSeleccionado = jTableComestible.rowAtPoint(evt.getPoint());  // TODO add your handling code here:
+    }//GEN-LAST:event_jTableComestibleMouseClicked
+
+    private void EliminarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEActionPerformed
+     
+        if (datoSeleccionado >= 0) {
+            int dato = Integer.valueOf(jTableProducto.getValueAt(datoSeleccionado, 0).toString());
+            CRUDConsumible cli = new CRUDConsumible();
+            if (JOptionPane.showConfirmDialog(rootPane,
+                    "Se eliminará el registro, ¿desea continuar?",
+                    "Eliminar Registro",
+                    JOptionPane.WARNING_MESSAGE,
+                    JOptionPane.YES_NO_OPTION)
+                    == JOptionPane.YES_OPTION) {
+
+                cli.Eliminar(dato);
+                mostrarConsumible();
+
+                JOptionPane.showMessageDialog(null,
+                        "Dato eliminado correctamente");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Debe seleccionar un registro de la tabla");
+        }
+                                  // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarEActionPerformed
+
+    private void EliminarVJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarVJActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarVJActionPerformed
+
+    private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
+        // TODO add your handling code here:
+        KeyTipedTXT(evt);
+    }//GEN-LAST:event_jTextFieldNombreKeyTyped
+
+    private void jTextFieldPrecioCompraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioCompraKeyTyped
+        // TODO add your handling code here:
+        KeyTipedNUM(evt);
+    }//GEN-LAST:event_jTextFieldPrecioCompraKeyTyped
+
+    private void jTextFieldPrecioVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrecioVentaKeyTyped
+        // TODO add your handling code here:
+        KeyTipedNUM(evt);
+    }//GEN-LAST:event_jTextFieldPrecioVentaKeyTyped
+
     private final Conexion con = new Conexion();
     private final Connection cn = con.conectar();
 
@@ -970,11 +1088,53 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             }
         });
     }
+    
+    //Metodo para tipar solo letras.
+    public void KeyTipedTXT(java.awt.event.KeyEvent evt) {
+        char car = evt.getKeyChar();
+        if ((car < 'a' || car > 'z') && (car < 'A' || car > 'Z')
+                && car != 'á'
+                && car != 'é'
+                && car != 'í'
+                && car != 'ó'
+                && car != 'ú'
+                && car != 'Á'
+                && car != 'É'
+                && car != 'Í'
+                && car != 'Ó'
+                && car != 'Ú'
+                && car != 'Ü'
+                && car != 'ü'
+                && car != 'Ñ'
+                && car != 'ñ'
+                && (car != (char) KeyEvent.VK_SPACE)) {
+            evt.consume();
+        }
+    }
 
+    //Metodo para tipar numero y puntos.
+    public void KeyTipedNUMPUN(java.awt.event.KeyEvent evt) {
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && car != '.') {
+            evt.consume();
+        }
+    }
+
+    //Metodo para tipar numero y puntos.
+    public void KeyTipedNUM(java.awt.event.KeyEvent evt) {
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9')) {
+            evt.consume();
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditarConsumible;
     private javax.swing.JButton EditarElectronico;
     private javax.swing.JButton EditarVideojuego;
+    private javax.swing.JButton EliminarC;
+    private javax.swing.JButton EliminarE;
+    private javax.swing.JButton EliminarVJ;
     private javax.swing.JScrollPane TablaConsumibles;
     public static javax.swing.JButton botonmostrar;
     private javax.swing.JComboBox<String> comboCategoria;
@@ -985,7 +1145,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBuscar;
-    private javax.swing.JButton jButtonEliminar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -996,7 +1155,9 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public static javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
+    public static javax.swing.JTable jTableComestible;
     public static javax.swing.JTable jTableProducto;
     public static javax.swing.JTable jTableVideojuegos;
     public static javax.swing.JTextArea jTextArea1;
@@ -1021,3 +1182,4 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     public static javax.swing.JButton videojuego;
     // End of variables declaration//GEN-END:variables
 }
+
