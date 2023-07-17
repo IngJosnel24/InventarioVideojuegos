@@ -108,15 +108,7 @@ public class CRUDElectronico {
         }
     }
 
-//    public void actualizarDatosElectronico(POJOElectronico electronico) {
-//        try{
-//            CallableStatement cbst = cn.prepareCall("{call ModificarElectronico(?,?,?,?,?,?,?)}");
-//
-//            cbst.setInt(1, electronico.getIdProducto());
-//        }
-//        catch(SQLException e){
-//        }
-//    }
+    
 }
 
 
