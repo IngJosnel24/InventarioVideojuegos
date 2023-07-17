@@ -640,6 +640,11 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jPanel2.add(tablavideojuegos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 880, -1));
 
         jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, -1, -1));
 
         EditarElectronico.setText("Editar");
@@ -955,6 +960,16 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             }
         } 
     }//GEN-LAST:event_EditarVideojuegoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private final Conexion con = new Conexion();
     private final Connection cn = con.conectar();
