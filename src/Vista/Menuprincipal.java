@@ -215,10 +215,7 @@ public class Menuprincipal extends javax.swing.JFrame {
          try {
             RegistroDeVentas panel2 = new RegistroDeVentas();
             panel2.setVisible(true);
-<<<<<<< HEAD
-=======
-             
->>>>>>> a1a672a2c7c91ce2682f91e4359c1adacf0e164a
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al mostrar el panel: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
