@@ -36,6 +36,7 @@ public class RegistroConsumibles extends javax.swing.JFrame {
 
     public RegistroConsumibles() {
         initComponents();
+        this.setLocationRelativeTo(null);
 
 //        mostrar();
         JugarConCamposDeTexto();
