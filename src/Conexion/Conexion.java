@@ -11,10 +11,12 @@ public class Conexion {
 
     
     private final String 
-            conexionUrl = "jdbc:sqlserver://localhost:51386;"
+            conexionUrl = "jdbc:sqlserver://localhost:1433;"
             + "database=DB_ELTORO;"
             + "integratedSecurity = true;" + " encrypt= true;trustServerCertificate= true;";
-
+//Josnel:51386
+//Oneyker:1433
+//Marcelo:
     Connection cn;
 
     public Connection conectar() { //constructor de la clase

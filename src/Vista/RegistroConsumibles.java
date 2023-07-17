@@ -359,7 +359,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         videojuego = new javax.swing.JButton();
         tablavideojuegos = new javax.swing.JScrollPane();
         jTableVideojuegos = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
         EditarElectronico = new javax.swing.JButton();
         EditarVideojuego = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -379,6 +378,10 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+<<<<<<< HEAD
+=======
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+>>>>>>> a1a672a2c7c91ce2682f91e4359c1adacf0e164a
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro De Productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI Semibold", 1, 36))); // NOI18N
@@ -557,6 +560,11 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 240, 80));
+<<<<<<< HEAD
+=======
+
+        jSpinner1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+>>>>>>> a1a672a2c7c91ce2682f91e4359c1adacf0e164a
         jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 120, -1));
 
         txtMarca.addActionListener(new java.awt.event.ActionListener() {
@@ -670,9 +678,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         tablavideojuegos.setViewportView(jTableVideojuegos);
 
         jPanel2.add(tablavideojuegos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 880, -1));
-
-        jButton2.setText("jButton2");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, -1, -1));
 
         EditarElectronico.setText("Editar");
         EditarElectronico.addActionListener(new java.awt.event.ActionListener() {
@@ -1142,7 +1147,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     public static javax.swing.JButton electronico;
     public static javax.swing.JTextField idproductos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JLabel jLabel10;

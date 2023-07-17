@@ -10,6 +10,7 @@ import javax.swing.Timer;
  * @author mr540
  */
 public class Tiempo extends javax.swing.JFrame {
+    
     private Timer timer;
     private int hora, minuto, segundo;
     
