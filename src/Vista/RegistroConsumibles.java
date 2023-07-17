@@ -346,7 +346,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         videojuego = new javax.swing.JButton();
         tablavideojuegos = new javax.swing.JScrollPane();
         jTableVideojuegos = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
         EditarElectronico = new javax.swing.JButton();
         EditarVideojuego = new javax.swing.JButton();
 
@@ -361,7 +360,8 @@ public class RegistroConsumibles extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro De Productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI Semibold", 1, 36))); // NOI18N
@@ -638,14 +638,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         tablavideojuegos.setViewportView(jTableVideojuegos);
 
         jPanel2.add(tablavideojuegos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 880, -1));
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, -1, -1));
 
         EditarElectronico.setText("Editar");
         EditarElectronico.addActionListener(new java.awt.event.ActionListener() {
@@ -961,16 +953,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_EditarVideojuegoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private final Conexion con = new Conexion();
     private final Connection cn = con.conectar();
 
@@ -997,7 +979,6 @@ public class RegistroConsumibles extends javax.swing.JFrame {
     public static javax.swing.JButton electronico;
     public static javax.swing.JTextField idproductos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminar;

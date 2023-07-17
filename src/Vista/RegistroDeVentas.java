@@ -329,7 +329,6 @@ public class RegistroDeVentas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextFieldPrecioCompra = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         consumibles = new javax.swing.JButton();
         botonmostrar = new javax.swing.JButton();
@@ -345,8 +344,6 @@ public class RegistroDeVentas extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jTextFieldIDElectronico = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jSpinner1 = new javax.swing.JSpinner();
         txtMarca = new javax.swing.JTextField();
         txtFechaVencimiento = new javax.swing.JFormattedTextField();
@@ -366,50 +363,45 @@ public class RegistroDeVentas extends javax.swing.JFrame {
         videojuego = new javax.swing.JButton();
         tablavideojuegos = new javax.swing.JScrollPane();
         jTableVideojuegos = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
         EditarElectronico = new javax.swing.JButton();
         EditarVideojuego = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro De Productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI Semibold", 1, 36))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro De Ventas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI Semibold", 1, 36))); // NOI18N
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 670));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelidelectronico.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         labelidelectronico.setText("ID Electronico");
-        jPanel2.add(labelidelectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 20));
+        jPanel2.add(labelidelectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 100, 20));
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNombreActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 130, -1));
+        jPanel2.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 130, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel5.setText("Cantidad");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 60, 20));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 60, 20));
 
         jTextFieldPrecioCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioCompraActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldPrecioCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 130, -1));
+        jPanel2.add(jTextFieldPrecioCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel6.setText("Precio Compra");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 100, 20));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel8.setText("Descripcion");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, 20));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 100, 20));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel9.setText("Categoria");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 70, 20));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 70, 20));
 
         consumibles.setText("Guardar");
         consumibles.addActionListener(new java.awt.event.ActionListener() {
@@ -507,63 +499,61 @@ public class RegistroDeVentas extends javax.swing.JFrame {
                 comboCategoriaActionPerformed(evt);
             }
         });
-        jPanel2.add(comboCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 130, -1));
+        jPanel2.add(comboCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 130, -1));
 
         lbMarca.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lbMarca.setText("Marca");
-        jPanel2.add(lbMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, -1, 20));
+        jPanel2.add(lbMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, 20));
 
         jTextFieldPrecioVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioVentaActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 130, -1));
+        jPanel2.add(jTextFieldPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 130, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel10.setText("Precio venta");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 90, 20));
-        jPanel2.add(jTextFieldIDElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 90, 20));
+        jPanel2.add(jTextFieldIDElectronico, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel4.setText("Registrar Nombre");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 120, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 120, 20));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 240, 80));
-        jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, -1, -1));
+        jSpinner1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jSpinner1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 120, -1));
 
         txtMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMarcaActionPerformed(evt);
             }
         });
-        jPanel2.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 130, -1));
+        jPanel2.add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 130, -1));
 
         try {
             txtFechaVencimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPanel2.add(txtFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 130, -1));
+        jPanel2.add(txtFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 130, -1));
 
         lbVencimiento.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lbVencimiento.setText("Vencimiento");
-        jPanel2.add(lbVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 90, 20));
+        jPanel2.add(lbVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 90, 20));
 
         txtPlataforma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPlataformaActionPerformed(evt);
             }
         });
-        jPanel2.add(txtPlataforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 130, -1));
+        jPanel2.add(txtPlataforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 130, -1));
 
         lbPlataforma.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         lbPlataforma.setText("Plataforma");
-        jPanel2.add(lbPlataforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 90, 20));
+        jPanel2.add(lbPlataforma, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 90, 20));
 
         jButton1.setText("+");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -571,17 +561,17 @@ public class RegistroDeVentas extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel3.setText("ID Consumible");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 100, 20));
 
         labelidvideojuego1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         labelidvideojuego1.setText("ID VideoJuego");
-        jPanel2.add(labelidvideojuego1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 100, 20));
-        jPanel2.add(jTextFieldIDConsumible1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
-        jPanel2.add(jTextFieldIDVideoJuego1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 120, -1));
+        jPanel2.add(labelidvideojuego1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 100, 20));
+        jPanel2.add(jTextFieldIDConsumible1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 120, -1));
+        jPanel2.add(jTextFieldIDVideoJuego1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 120, -1));
 
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -590,7 +580,7 @@ public class RegistroDeVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, -1, 30));
-        jPanel2.add(idproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 120, -1));
+        jPanel2.add(idproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 120, -1));
 
         tableelectronicos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -648,14 +638,6 @@ public class RegistroDeVentas extends javax.swing.JFrame {
 
         jPanel2.add(tablavideojuegos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 880, -1));
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, -1, -1));
-
         EditarElectronico.setText("Editar");
         EditarElectronico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -676,7 +658,7 @@ public class RegistroDeVentas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -908,10 +890,6 @@ public class RegistroDeVentas extends javax.swing.JFrame {
         datoSeleccionado = jTableVideojuegos.rowAtPoint(evt.getPoint());
     }//GEN-LAST:event_jTableVideojuegosMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void EditarElectronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarElectronicoActionPerformed
         int fila = this.tableelectronicos.getSelectedRow();
 
@@ -1014,7 +992,6 @@ public class RegistroDeVentas extends javax.swing.JFrame {
     public static javax.swing.JButton electronico;
     public static javax.swing.JTextField idproductos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminar;
@@ -1023,14 +1000,11 @@ public class RegistroDeVentas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    public static javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
     public static javax.swing.JTable jTableProducto;
     public static javax.swing.JTable jTableVideojuegos;
-    public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextFieldBuscar;
     public static javax.swing.JTextField jTextFieldIDConsumible1;
     public static javax.swing.JTextField jTextFieldIDElectronico;

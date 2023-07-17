@@ -10,6 +10,7 @@ import javax.swing.Timer;
  * @author mr540
  */
 public class Tiempo extends javax.swing.JFrame {
+    
     private Timer timer;
     private int hora, minuto, segundo;
     
@@ -426,7 +427,7 @@ public class Tiempo extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 670));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
